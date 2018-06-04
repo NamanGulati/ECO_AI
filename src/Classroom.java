@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class Classroom {
 
+
 	private String name;
 	private ArrayList <Appliance> Appliances;
 	private String department;
@@ -36,4 +37,5 @@ public class Classroom {
 		this.department = department;
 	}
 	
+
 }
