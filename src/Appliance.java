@@ -16,14 +16,13 @@ public class Appliance {
 
 
 
-	public Appliance(String name, int quantity, String type, double hourlyConsumption, double timeOn,
-			double dailyConsumption) {
+	public Appliance(String name, int quantity, String type, double hourlyConsumption, double timeOn) {
 		this.name = name;
 		this.quantity = quantity;
 		this.type = type;
 		this.hourlyConsumption = hourlyConsumption;
 		this.timeOn = timeOn;
-		this.dailyConsumption = dailyConsumption;
+		
 	}
 
 

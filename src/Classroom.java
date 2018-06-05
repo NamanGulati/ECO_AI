@@ -6,7 +6,7 @@ public class Classroom {
 
 
 	private String name;
-	private ArrayList <Appliance> Appliances;
+	private static ArrayList <Appliance> Appliances;
 	private String department;
 	
 	public Classroom(String name, ArrayList<Appliance> appliances, String department) {
@@ -47,7 +47,7 @@ public class Classroom {
 		return sum;
 	}
 	
-	public Map<String, Double> findMaxApplianceType(){
+	public static Map<String, Double> findMaxApplianceType(){
 		
 		Map<String, Double> maxVal=new HashMap<String, Double>();
 		double max=0;

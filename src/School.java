@@ -110,6 +110,15 @@ public class School {
 		else {return null;}
 	} //-------End of findMaxClassroom Method-------
 	
-	
+	public Classroom getClassroom(String roomName){
+		for(int i=0;i<floors.size();i++){
+			for(int j=0;j<floors.get(i).getClassrooms().size();i++){
+				if(roomName.equals(floors.get(i).getClassrooms().get(j).getName())){
+					return floors.get(i).getClassrooms().get(j);
+				}
+			}
+		}
+		return null;
+	}
 
 }
