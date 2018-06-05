@@ -2,19 +2,21 @@
  * This class handles the various Appliances within
  * the school. This includes the name and quantity,
  * along with the amount of energy consumed.*/
+
+//CLASS FINISHED
 public class Appliance {
 	private String name;
 	private int quantity;
-	private ApplianceType type;
+	public String type;
 	private double hourlyConsumption;
 	private double timeOn;
-	private double dailyConsumption;
+	
 
 
 
 
 
-	public Appliance(String name, int quantity, ApplianceType type, double hourlyConsumption, double timeOn,
+	public Appliance(String name, int quantity, String type, double hourlyConsumption, double timeOn,
 			double dailyConsumption) {
 		this.name = name;
 		this.quantity = quantity;
@@ -60,7 +62,7 @@ public class Appliance {
 
 
 
-	public ApplianceType getType() {
+	public String getType() {
 		return type;
 	}
 
@@ -68,7 +70,7 @@ public class Appliance {
 
 
 
-	public void setType(ApplianceType type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 
@@ -106,27 +108,8 @@ public class Appliance {
 
 
 
-
-
-	public double getDailyConsumption() {
-		return dailyConsumption;
-	}
-
-
-
-
-
-	public void setDailyConsumption(double dailyConsumption) {
-		this.dailyConsumption = dailyConsumption;
-	}
-
-
-
-
-
 	public double calcDailyConsumption() {
-		dailyConsumption=hourlyConsumption*timeOn;
-		return dailyConsumption;
+		return hourlyConsumption*timeOn;
 	}
 
 
