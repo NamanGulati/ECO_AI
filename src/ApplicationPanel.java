@@ -1,3 +1,4 @@
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -7,6 +8,7 @@ import javax.swing.SwingUtilities;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
@@ -22,6 +24,8 @@ import com.jgoodies.forms.layout.RowSpec;
 import com.jgoodies.forms.layout.FormSpecs;
 import javax.swing.JTextField;
 import javax.swing.JList;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.event.ListSelectionEvent;
 
 public class ApplicationPanel extends JPanel {
 	private JTextField txtDailySchoolConsumption;
@@ -30,6 +34,7 @@ public class ApplicationPanel extends JPanel {
 	private JTextField txtSchoolDailyEnergy;
 	private JTextField txtSchoolMonthlyEnergy;
 	private JList list;
+	private JButton btnViewGraph;
 
 	/**
 	 * Create the panel.
@@ -96,7 +101,7 @@ public class ApplicationPanel extends JPanel {
 		txtMostEnergyConsuming_1 = new JTextField();
 		Iterator<Entry<Double, String>> i = MainPrg.stJoes.getApplianceConsumption().entrySet().iterator();
 		Entry<Double, String> e = i.next();
-		txtMostEnergyConsuming_1.setText("Most Energy Consuming Appliance: "+e.getValue()+" "+ e.getValue());
+		txtMostEnergyConsuming_1.setText("Most Energy Consuming Appliance: "+e.getValue()+" "+ e.getKey());
 		Analytics.add(txtMostEnergyConsuming_1, "cell 0 2,growx");
 		txtMostEnergyConsuming_1.setColumns(10);
 		
@@ -110,9 +115,17 @@ public class ApplicationPanel extends JPanel {
 		Analytics.add(txtSchoolMonthlyEnergy, "cell 0 4,growx");
 		txtSchoolMonthlyEnergy.setColumns(10);
 		
-		list = new JList();
-		list.
-		Analytics.add(list, "cell 0 6,grow");
+		DefaultListModel<String> model = new DefaultListModel<>();
+		list = new JList(model);
+		model.addElement(e.getValue()+"  "+e.getKey());
+		while(i.hasNext()){
+			Entry<Double, String> ent = i.next();
+			model.addElement(ent.getValue()+" "+ent.getKey());
+		}
+		Analytics.add(list, "flowx,cell 0 6,grow");
+		
+		btnViewGraph = new JButton("View Graph");
+		Analytics.add(btnViewGraph, "cell 0 6");
 	}
 
 
