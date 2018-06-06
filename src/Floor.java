@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Floor {
 	private int floorNumber;
 	private ArrayList<Classroom>classrooms;
-	
+
 	public Floor(int floorNumber, ArrayList<Classroom> classrooms) {
 		this.floorNumber = floorNumber;
 		this.classrooms = classrooms;
@@ -29,8 +29,15 @@ public class Floor {
 	}
 
 	public double calcFloorConsumption() {
-		// TODO Auto-generated method stub
-		return 0;
+		double sum=0;
+		for(int i=0;i<classrooms.size();i++){
+			sum+=classrooms.get(i).calcClassConsumption();
+		}
+		return sum;
 	}
 	
+	public double calcPrice(){
+		return calcFloorConsumption()*0.094;
+	}
+
 }

@@ -16,6 +16,16 @@ public class School {
 	}
 
 
+	public Map<Double, String> getApplianceConsumption() {
+		return applianceConsumption;
+	}
+
+
+	public void setApplianceConsumption(Map<Double, String> applianceConsumption) {
+		this.applianceConsumption = applianceConsumption;
+	}
+
+
 	public ArrayList<Floor> getFloors() {
 		return floors;
 	}
@@ -39,7 +49,8 @@ public class School {
 			schoolEnergyUse += floors.get(x).calcFloorConsumption();    
 		}
 		return schoolEnergyUse;
-	} //----End of calcSchoolConsumption Method----
+	} 
+	
 	/* ***************************
 	 * Author: Jianying Chiang    Date: 2018-06-08
 	 * Calculates and returns the sum of the 
@@ -60,7 +71,8 @@ public class School {
 			}
 		}
 		return wattage;
-	} //------End of calcApplianceTotal Method------
+	} 
+	
 	/* ***************************
 	 * Author: Jianying Chiang    Date: 2018-06-08
 	 * Calculates and return the appliance type with 
@@ -84,7 +96,7 @@ public class School {
 		}
 
 
-	} //-----End of findMaxApplianceType Method-----
+	}
 
 	/* ***************************
 	 * Author: Jianying Chiang    Date: 2018-06-08
@@ -108,7 +120,7 @@ public class School {
 			return floors.get(2).findMaxClassroom();    
 		}
 		else {return null;}
-	} //-------End of findMaxClassroom Method-------
+	} 
 	
 	public Classroom getClassroom(String roomName){
 		for(int i=0;i<floors.size();i++){
@@ -120,5 +132,8 @@ public class School {
 		}
 		return null;
 	}
-
+	
+	public double calcPrice(){
+		return this.calcSchoolConsumption()*0.094;
+	}
 }

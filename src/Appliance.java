@@ -108,8 +108,11 @@ public class Appliance {
 
 
 	public double calcDailyConsumption() {
-		return hourlyConsumption*timeOn*quantity;
+		return hourlyConsumption*timeOn*quantity/1000;
 	}
-
+	
+	public double calcPrice(){
+		return calcDailyConsumption()*0.094;
+	}
 
 }

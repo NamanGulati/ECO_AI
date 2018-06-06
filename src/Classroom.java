@@ -61,5 +61,11 @@ public class Classroom {
 		maxVal.put(type, max);
 		return maxVal;
 	}
+	public double calcPrice(){
+		return this.calcClassConsumption()*0.094;
+	}
+	public String toString(){
+		return this.name+" "+this.calcClassConsumption()+"kwh";
+	}
 
 }
