@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Map.Entry;
 
+import SortingAlgorithms.BubbleSort;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
@@ -10,46 +12,54 @@ import javafx.scene.chart.XYChart;
 import javafx.stage.Stage;
 
 public class GenBarGraph extends Application{
-	  final static String austria = "Austria";
-	    final static String brazil = "Brazil";
-	    final static String france = "France";
-	    final static String italy = "Italy";
-	    final static String usa = "USA";
+	
 	    private static boolean classOrAppliance=false;
 	    
 	    @Override public void start(Stage stage) {
+	    	XYChart.Series series1 = new XYChart.Series();
+	        series1.setName("Energy Consumption");
+	        final CategoryAxis xAxis = new CategoryAxis();
+	        final NumberAxis yAxis = new NumberAxis();
+	        final BarChart<String,Number> bc = 
+	            new BarChart<String,Number>(xAxis,yAxis);
 	    	if(classOrAppliance){
 	    		
-	    		Iterator i = MainPrg.stJoes.getApplianceConsumption().entrySet().iterator();
+	    		Iterator<Entry<Double, String>> i = MainPrg.stJoes.getApplianceConsumption().entrySet().iterator();
 	    		
 	    		stage.setTitle("Most Energy Consuming Appliances");
-		        final CategoryAxis xAxis = new CategoryAxis();
-		        final NumberAxis yAxis = new NumberAxis();
-		        final BarChart<String,Number> bc = 
-		            new BarChart<String,Number>(xAxis,yAxis);
-		        bc.setTitle("Country Summary");
+		        
+		        bc.setTitle("Most Energy Consuming Appliances");
 		        xAxis.setLabel("Appliance");       
 		        yAxis.setLabel("Consumption (kWh)");
-		        ArrayList<XYChart.Series>series = new ArrayList<XYChart.Series>();
 		        while(i.hasNext()){
-		        	
-		        	
-		       
+		        	Entry<Double, String> e = i.next();
+		        	series1.getData().add(new XYChart.Data(e.getValue(), e.getKey()));		       
 		        }
-		        XYChart.Series series1 = new XYChart.Series();
-		        series1.setName("2003");       
-		        series1.getData().add(new XYChart.Data(austria, 25601.34));
-		        series1.getData().add(new XYChart.Data(brazil, 20148.82));
-		        series1.getData().add(new XYChart.Data(france, 10000));
-		        series1.getData().add(new XYChart.Data(italy, 35407.15));
-		        series1.getData().add(new XYChart.Data(usa, 12000));  
+		        
 	    	}
-	           
+	    	else{
+	    		ArrayList<Classroom>rooms=new ArrayList<Classroom>();
+	    		for(int i=0;i<MainPrg.stJoes.getFloors().size();i++){
+	    			for(int j=0;j<MainPrg.stJoes.getFloors().get(i).getClassrooms().size();j++){
+	    				rooms.add(MainPrg.stJoes.getFloors().get(i).getClassrooms().get(j));
+	    			}
+	    		}
+	    		BubbleSort.sort(rooms, false, "consumption");
+	    		bc.setTitle("Energy Consumption by Clasroom");
+		        xAxis.setLabel("Room");       
+		        yAxis.setLabel("Consumption (kWh)");
+		        for(int i=0;i<rooms.size();i++){
+		        	series1.getData().add(new XYChart.Data(rooms.get(i).getName(),rooms.get(i).consumption));
+		        }
+		        
+		        
+	    		
+	    	}
 	        
 	        
 	        
 	        Scene scene  = new Scene(bc,800,600);
-	        bc.getData().addAll(series1, series2, series3);
+	        bc.getData().addAll(series1);
 	        stage.setScene(scene);
 	        stage.show();
 	    }

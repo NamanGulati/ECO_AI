@@ -8,11 +8,13 @@ public class Classroom {
 	private String name;
 	private static ArrayList <Appliance> Appliances;
 	private String department;
+	double consumption;
 	
 	public Classroom(String name, ArrayList<Appliance> appliances, String department) {
 		this.name = name;
 		Appliances = appliances;
 		this.department = department;
+		consumption=calcClassConsumption();
 	}
 
 	public String getName() {
