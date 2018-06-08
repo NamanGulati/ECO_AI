@@ -16,7 +16,7 @@ public class MainPrg {
 					while(!scan.nextLine().equals("*")){
 						Scanner input= new Scanner(scan.nextLine());
 						input.useDelimiter(",");
-						appliances.add(new Appliance(input.next(),))
+						appliances.add()); 
 					}
 				}
 			}

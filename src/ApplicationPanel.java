@@ -86,46 +86,67 @@ public class ApplicationPanel extends JPanel {
 		
 		JPanel Analytics = new JPanel();
 		tabbedPane.addTab("Analytics", null, Analytics, null);
-		Analytics.setLayout(new MigLayout("", "[grow]", "[][][][][][][grow]"));
+		Analytics.setLayout(null);
 		
 		txtDailySchoolConsumption = new JTextField();
+		txtDailySchoolConsumption.setBounds(6, 6, 431, 20);
 		txtDailySchoolConsumption.setText("Daily School Consumption: "+MainPrg.stJoes.calcSchoolConsumption()+"kWh");
-		Analytics.add(txtDailySchoolConsumption, "cell 0 0,growx");
+		Analytics.add(txtDailySchoolConsumption);
 		txtDailySchoolConsumption.setColumns(10);
 		
 		txtMostEnergyConsuming = new JTextField();
+		txtMostEnergyConsuming.setBounds(6, 29, 431, 20);
 		txtMostEnergyConsuming.setText("Most Energy Consuming Classroom: "+MainPrg.stJoes.findMaxClassroom());
-		Analytics.add(txtMostEnergyConsuming, "cell 0 1,growx");
+		Analytics.add(txtMostEnergyConsuming);
 		txtMostEnergyConsuming.setColumns(10);
 		
 		txtMostEnergyConsuming_1 = new JTextField();
+		txtMostEnergyConsuming_1.setBounds(6, 52, 431, 20);
 		Iterator<Entry<Double, String>> i = MainPrg.stJoes.getApplianceConsumption().entrySet().iterator();
 		Entry<Double, String> e = i.next();
 		txtMostEnergyConsuming_1.setText("Most Energy Consuming Appliance: "+e.getValue()+" "+ e.getKey());
-		Analytics.add(txtMostEnergyConsuming_1, "cell 0 2,growx");
+		Analytics.add(txtMostEnergyConsuming_1);
 		txtMostEnergyConsuming_1.setColumns(10);
 		
 		txtSchoolDailyEnergy = new JTextField();
+		txtSchoolDailyEnergy.setBounds(6, 75, 431, 20);
 		txtSchoolDailyEnergy.setText("School Daily Energy Cost: $"+String.format("%.2f",MainPrg.stJoes.calcSchoolConsumption()));
-		Analytics.add(txtSchoolDailyEnergy, "cell 0 3,growx");
+		Analytics.add(txtSchoolDailyEnergy);
 		txtSchoolDailyEnergy.setColumns(10);
 		
 		txtSchoolMonthlyEnergy = new JTextField();
+		txtSchoolMonthlyEnergy.setBounds(6, 98, 431, 20);
 		txtSchoolMonthlyEnergy.setText("School Monthly Energy Cost: $"+String.format("%.2f",MainPrg.stJoes.calcSchoolConsumption()*22));
-		Analytics.add(txtSchoolMonthlyEnergy, "cell 0 4,growx");
+		Analytics.add(txtSchoolMonthlyEnergy);
 		txtSchoolMonthlyEnergy.setColumns(10);
 		
 		DefaultListModel<String> model = new DefaultListModel<>();
 		list = new JList(model);
+		list.setBounds(6, 151, 280, 132);
 		model.addElement(e.getValue()+"  "+e.getKey());
 		while(i.hasNext()){
 			Entry<Double, String> ent = i.next();
 			model.addElement(ent.getValue()+" "+ent.getKey());
 		}
-		Analytics.add(list, "flowx,cell 0 6,grow");
+		Analytics.add(list);
 		
-		btnViewGraph = new JButton("View Graph");
-		Analytics.add(btnViewGraph, "cell 0 6");
+		btnViewGraph = new JButton("View Graph of Aplliances");
+		btnViewGraph.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				GenBarGraph.run(true);
+			}
+		});
+		btnViewGraph.setBounds(290, 151, 155, 46);
+		Analytics.add(btnViewGraph);
+		
+		JButton button = new JButton("View Graph of Clasrooms");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				GenBarGraph.run(false);
+			}
+		});
+		button.setBounds(285, 208, 160, 46);
+		Analytics.add(button);
 	}
 
 
