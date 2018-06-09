@@ -7,14 +7,17 @@ public class Classroom {
 
 	private String name;
 	private static ArrayList <Appliance> Appliances;
-	private String department;
 	double consumption;
 	
-	public Classroom(String name, ArrayList<Appliance> appliances, String department) {
+	public Classroom(String name, ArrayList<Appliance> appliances) {
 		this.name = name;
 		Appliances = appliances;
-		this.department = department;
 		consumption=calcClassConsumption();
+	}
+
+	public Classroom() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	public String getName() {
@@ -33,19 +36,13 @@ public class Classroom {
 		Appliances = appliances;
 	}
 
-	public String getDepartment() {
-		return department;
-	}
-
-	public void setDepartment(String department) {
-		this.department = department;
-	}
 	
 	public double calcClassConsumption(){
 		double sum=0;
 		for(int i=0;i<Appliances.size();i++){
 			sum+=Appliances.get(i).calcDailyConsumption();
 		}
+		this.consumption=sum;
 		return sum;
 	}
 	
@@ -69,5 +66,5 @@ public class Classroom {
 	public String toString(){
 		return this.name+" "+this.calcClassConsumption()+"kwh";
 	}
-
+	
 }

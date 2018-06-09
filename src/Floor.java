@@ -9,6 +9,10 @@ public class Floor {
 		this.classrooms = classrooms;
 	}
 
+	public Floor() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getFloorNumber() {
 		return floorNumber;
 	}
@@ -25,7 +29,15 @@ public class Floor {
 		this.classrooms = classrooms;
 	}
 	public Classroom findMaxClassroom(){
-		return classrooms.get(0);
+		double max=classrooms.get(0).calcClassConsumption();
+		Classroom cl=classrooms.get(0);
+		for(int i =0;i<this.classrooms.size();i++){
+			if(classrooms.get(i).calcClassConsumption()>max){
+				max=classrooms.get(i).calcClassConsumption();
+				cl=classrooms.get(i);
+			}
+		}
+		return cl;
 	}
 
 	public double calcFloorConsumption() {

@@ -10,7 +10,7 @@ public class Appliance {
 	private String name;
 	private int quantity;
 	public String type;
-	private double hourlyConsumption;s
+	private double hourlyConsumption;
 	private double timeOn;
 	
 	public Appliance(String name, int quantity, String type, double hourlyConsumption, double timeOn) {
@@ -21,7 +21,9 @@ public class Appliance {
 		this.timeOn = timeOn;
 		
 	}
-
+	
+	public Appliance () {}
+	
 	public String getName() {
 		return name;
 	}
@@ -68,6 +70,9 @@ public class Appliance {
 	
 	public double calcPrice(){
 		return calcDailyConsumption()*Constants.ENERGY_RATE;
+	}
+	public String toString(){
+		return "Name: "+name+" Quantity: "+quantity+" type: "+type+" consumption: "+hourlyConsumption+" time On: "+timeOn;
 	}
 
 }

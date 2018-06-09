@@ -16,6 +16,11 @@ public class School {
 	}
 
 
+	public School() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public Map<Double, String> getApplianceConsumption() {
 		return applianceConsumption;
 	}
@@ -135,5 +140,8 @@ public class School {
 	
 	public double calcPrice(){
 		return this.calcSchoolConsumption()*0.094;
+	}
+	public static double calcTrees(double consumption){
+		return consumption/12;
 	}
 }

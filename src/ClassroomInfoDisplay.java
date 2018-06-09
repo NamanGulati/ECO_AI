@@ -42,12 +42,7 @@ public class ClassroomInfoDisplay extends JDialog {
 			className.setText("Name: "+ room.getName());
 			contentPanel.add(className);
 		}
-		{
-			JTextPane DepartmentName = new JTextPane();
-			DepartmentName.setBounds(25, 36, 140, 20);
-			DepartmentName.setText("Department: "+room.getDepartment());
-			contentPanel.add(DepartmentName);
-		}
+		
 
 		JTextPane applianceList = new JTextPane();
 		applianceList.setBounds(25, 67, 377, 122);
