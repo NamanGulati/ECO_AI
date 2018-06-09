@@ -18,6 +18,7 @@ public class School {
 
 	public School() {
 		// TODO Auto-generated constructor stub
+		applianceConsumption= new TreeMap<Double,String>();
 	}
 
 
@@ -88,12 +89,14 @@ public class School {
 	 * ****************************/
 	public void populateApplianceType() {
 		ArrayList<String>applianceTypes=new ArrayList<String>();
+		
 		for(int i=0;i<floors.size();i++){
 			for(int j=0;j<floors.get(i).getClassrooms().size();j++){
-				for(int k=0;k<floors.get(i).getClassrooms().get(k).getAppliances().size();k++){
-					if(!LinearSearch.search(applianceTypes,floors.get(i).getClassrooms().get(k).getAppliances().get(k).type,"type")){
-						applianceTypes.add(floors.get(i).getClassrooms().get(k).getAppliances().get(k).type);
-						this.applianceConsumption.put(calcApplianceTotal(floors.get(i).getClassrooms().get(k).getAppliances().get(k).type), floors.get(i).getClassrooms().get(k).getAppliances().get(k).type);
+				for(int k=0;k<floors.get(i).getClassrooms().get(j).getAppliances().size();k++){
+					if(!(LinearSearch.search(applianceTypes,floors.get(i).getClassrooms().get(j).getAppliances().get(k).type).size()>0)){
+						applianceTypes.add(floors.get(i).getClassrooms().get(j).getAppliances().get(k).type);
+						System.out.println("Floor: "+floors.get(i).getFloorNumber()+" Room: "+floors.get(i).getClassrooms().get(j).getName()+" Appliance: "+floors.get(i).getClassrooms().get(j).getAppliances().get(k));
+						this.applianceConsumption.put(calcApplianceTotal(floors.get(i).getClassrooms().get(j).getAppliances().get(k).type), floors.get(i).getClassrooms().get(j).getAppliances().get(k).type);
 					}
 				}
 
@@ -112,7 +115,7 @@ public class School {
 	 * @return: none
 	 * ****************************/
 	public Classroom findMaxClassroom() {
-		if (floors.get(0).findMaxClassroom().calcClassConsumption() >= floors.get(1).findMaxClassroom().calcClassConsumption() &&
+	/*	if (floors.get(0).findMaxClassroom().calcClassConsumption() >= floors.get(1).findMaxClassroom().calcClassConsumption() &&
 				floors.get(0).findMaxClassroom().calcClassConsumption() >= floors.get(2).findMaxClassroom().calcClassConsumption()) {
 			return floors.get(0).findMaxClassroom();
 		}
@@ -123,8 +126,18 @@ public class School {
 		else if (floors.get(2).findMaxClassroom().calcClassConsumption() >= floors.get(0).findMaxClassroom().calcClassConsumption() &&
 				floors.get(2).findMaxClassroom().calcClassConsumption() >= floors.get(1).findMaxClassroom().calcClassConsumption()) {
 			return floors.get(2).findMaxClassroom();    
+		}*/
+		double max=floors.get(0).getClassrooms().get(0).calcClassConsumption();
+		Classroom cl=floors.get(0).getClassrooms().get(0);
+		for(int i=0;i<floors.size();i++){
+			for(int j=0;j<floors.get(i).getClassrooms().size();j++){
+				if(floors.get(i).getClassrooms().get(j).calcClassConsumption()>max){
+					max=floors.get(i).getClassrooms().get(j).calcClassConsumption();
+					cl=floors.get(i).getClassrooms().get(j);
+				}
+			}
 		}
-		else {return null;}
+		return cl;
 	} 
 	
 	public Classroom getClassroom(String roomName){

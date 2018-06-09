@@ -53,6 +53,7 @@ public class MainPrg {
 	public static void main(String[]args) throws FileNotFoundException{
 		stJoes=new School();
 		readFile();
-		ApplicationPanel.main(null);
+		stJoes.populateApplianceType();
+		ApplicationPanel.run();
 	}
 }

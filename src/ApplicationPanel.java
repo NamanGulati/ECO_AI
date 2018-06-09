@@ -40,13 +40,13 @@ public class ApplicationPanel extends JPanel {
 	 * Create the panel.
 	 */
 	public ApplicationPanel() {
-		super(new GridLayout(1, 1));
+		//super(new GridLayout(1, 1));
 
 		JTabbedPane tabbedPane = new JTabbedPane();
 
 		add(tabbedPane);
-		
-		
+
+
 
 		for(int i=0;i<MainPrg.stJoes.getFloors().size();i++){
 			JPanel floor1 = new JPanel();
@@ -55,14 +55,28 @@ public class ApplicationPanel extends JPanel {
 			tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
 			FormLayout fl = new FormLayout(new ColumnSpec[] {
 					FormSpecs.RELATED_GAP_COLSPEC,
-					FormSpecs.DEFAULT_COLSPEC,},
+					ColumnSpec.decode("150px"),
+					FormSpecs.LABEL_COMPONENT_GAP_COLSPEC,
+					ColumnSpec.decode("155px"),},
 					new RowSpec[] {
 							FormSpecs.RELATED_GAP_ROWSPEC,
-							FormSpecs.DEFAULT_ROWSPEC,});
+							RowSpec.decode("20px"),
+							FormSpecs.LABEL_COMPONENT_GAP_ROWSPEC,
+							RowSpec.decode("20px"),
+							FormSpecs.LABEL_COMPONENT_GAP_ROWSPEC,
+							RowSpec.decode("20px"),
+							FormSpecs.LABEL_COMPONENT_GAP_ROWSPEC,
+							RowSpec.decode("20px"),
+							FormSpecs.LABEL_COMPONENT_GAP_ROWSPEC,
+							RowSpec.decode("20px"),
+							RowSpec.decode("33px"),
+							RowSpec.decode("46px"),
+							FormSpecs.UNRELATED_GAP_ROWSPEC,
+							RowSpec.decode("75px"),});
 			floor1.setLayout(fl);
 			int row=2;
 			int col=2;
-			for(int j=0;j<MainPrg.stJoes.getFloors().get(i).getClassrooms().size();i++){
+			for(int j=0;j<MainPrg.stJoes.getFloors().get(i).getClassrooms().size();j++){
 				JButton btn = new JButton(MainPrg.stJoes.getFloors().get(i).getClassrooms().get(j).getName());
 				btn.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
@@ -75,78 +89,104 @@ public class ApplicationPanel extends JPanel {
 						}
 					}
 				});
-				if(row>fl.getRowCount()){
+				System.out.println("Row Count: "+fl.getRowCount()+" Row: "+row+" Col: "+col);
+				if(row>14){
 					row=2;
 					col+=2;
 				}
-				floor1.add(btn, (""+row+", "+col));
+				if(col>4){
+					col=2;
+					row=2;
+				}
+				try{
+					floor1.add(btn, (""+row+", "+col));
+				}
+				catch(Exception e){
+					e.printStackTrace();
+					System.out.println("Error at:"+" Row: "+row+" Col: "+col);
+					break;
+				}
+			
+				
+				//col+=2;
 				row+=2;
 			}
 		}
-		
+
 		JPanel Analytics = new JPanel();
 		tabbedPane.addTab("Analytics", null, Analytics, null);
-		Analytics.setLayout(null);
-		
+		Analytics.setLayout(new FormLayout(new ColumnSpec[] {
+				FormSpecs.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("280px"),
+				FormSpecs.LABEL_COMPONENT_GAP_COLSPEC,
+				ColumnSpec.decode("155px"),},
+				new RowSpec[] {
+						FormSpecs.RELATED_GAP_ROWSPEC,
+						RowSpec.decode("20px"),
+						FormSpecs.LABEL_COMPONENT_GAP_ROWSPEC,
+						RowSpec.decode("20px"),
+						FormSpecs.LABEL_COMPONENT_GAP_ROWSPEC,
+						RowSpec.decode("20px"),
+						FormSpecs.LABEL_COMPONENT_GAP_ROWSPEC,
+						RowSpec.decode("20px"),
+						FormSpecs.LABEL_COMPONENT_GAP_ROWSPEC,
+						RowSpec.decode("20px"),
+						RowSpec.decode("33px"),
+						RowSpec.decode("46px"),
+						FormSpecs.UNRELATED_GAP_ROWSPEC,
+						RowSpec.decode("75px"),}));
+
 		txtDailySchoolConsumption = new JTextField();
-		txtDailySchoolConsumption.setBounds(6, 6, 431, 20);
 		txtDailySchoolConsumption.setText("Daily School Consumption: "+MainPrg.stJoes.calcSchoolConsumption()+"kWh");
-		Analytics.add(txtDailySchoolConsumption);
+		Analytics.add(txtDailySchoolConsumption, "2, 2, 3, 1, fill, top");
 		txtDailySchoolConsumption.setColumns(10);
-		
+
 		txtMostEnergyConsuming = new JTextField();
-		txtMostEnergyConsuming.setBounds(6, 29, 431, 20);
 		txtMostEnergyConsuming.setText("Most Energy Consuming Classroom: "+MainPrg.stJoes.findMaxClassroom());
-		Analytics.add(txtMostEnergyConsuming);
+		Analytics.add(txtMostEnergyConsuming, "2, 4, 3, 1, fill, top");
 		txtMostEnergyConsuming.setColumns(10);
-		
+
 		txtMostEnergyConsuming_1 = new JTextField();
-		txtMostEnergyConsuming_1.setBounds(6, 52, 431, 20);
 		Iterator<Entry<Double, String>> i = MainPrg.stJoes.getApplianceConsumption().entrySet().iterator();
 		Entry<Double, String> e = i.next();
 		txtMostEnergyConsuming_1.setText("Most Energy Consuming Appliance: "+e.getValue()+" "+ e.getKey());
-		Analytics.add(txtMostEnergyConsuming_1);
+		Analytics.add(txtMostEnergyConsuming_1, "2, 6, 3, 1, fill, top");
 		txtMostEnergyConsuming_1.setColumns(10);
-		
+
 		txtSchoolDailyEnergy = new JTextField();
-		txtSchoolDailyEnergy.setBounds(6, 75, 431, 20);
 		txtSchoolDailyEnergy.setText("School Daily Energy Cost: $"+String.format("%.2f",MainPrg.stJoes.calcSchoolConsumption()));
-		Analytics.add(txtSchoolDailyEnergy);
+		Analytics.add(txtSchoolDailyEnergy, "2, 8, 3, 1, fill, top");
 		txtSchoolDailyEnergy.setColumns(10);
-		
+
 		txtSchoolMonthlyEnergy = new JTextField();
-		txtSchoolMonthlyEnergy.setBounds(6, 98, 431, 20);
 		txtSchoolMonthlyEnergy.setText("School Monthly Energy Cost: $"+String.format("%.2f",MainPrg.stJoes.calcSchoolConsumption()*22));
-		Analytics.add(txtSchoolMonthlyEnergy);
+		Analytics.add(txtSchoolMonthlyEnergy, "2, 10, 3, 1, fill, top");
 		txtSchoolMonthlyEnergy.setColumns(10);
-		
+
 		DefaultListModel<String> model = new DefaultListModel<>();
 		list = new JList(model);
-		list.setBounds(6, 151, 280, 132);
 		model.addElement(e.getValue()+"  "+e.getKey());
 		while(i.hasNext()){
 			Entry<Double, String> ent = i.next();
 			model.addElement(ent.getValue()+" "+ent.getKey());
 		}
-		Analytics.add(list);
-		
+		Analytics.add(list, "2, 12, 1, 3, fill, fill");
+
 		btnViewGraph = new JButton("View Graph of Aplliances");
 		btnViewGraph.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				GenBarGraph.run(true);
 			}
 		});
-		btnViewGraph.setBounds(290, 151, 155, 46);
-		Analytics.add(btnViewGraph);
-		
+		Analytics.add(btnViewGraph, "4, 12, fill, fill");
+
 		JButton button = new JButton("View Graph of Clasrooms");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				GenBarGraph.run(false);
 			}
 		});
-		button.setBounds(285, 208, 160, 46);
-		Analytics.add(button);
+		Analytics.add(button, "2, 14, 3, 1, right, top");
 	}
 
 
@@ -169,7 +209,7 @@ public class ApplicationPanel extends JPanel {
 		frame.setVisible(true);
 	}
 
-	public static void main(String[] args) {
+	public static void run() {
 		//Schedule a job for the event dispatch thread:
 		//creating and showing this application's GUI.
 		SwingUtilities.invokeLater(new Runnable() {
