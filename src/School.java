@@ -1,7 +1,7 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
-import SearchAlgorithms.LinearSearch;
 
 public class School {
 	//Class Variables
@@ -12,7 +12,7 @@ public class School {
 
 	public School(ArrayList<Floor> floors) {
 		this.floors = floors;
-		applianceConsumption= new TreeMap<Double,String>();
+		applianceConsumption= new HashMap<Double,String>();
 	}
 
 
@@ -70,7 +70,7 @@ public class School {
 		for (int floor=0; floor<floors.size(); floor++) {
 			for (int rooms=0; rooms<floors.get(floor).getClassrooms().size(); rooms++) {
 				for (int applianceTypeIndex=0; applianceTypeIndex<floors.get(floor).getClassrooms().get(rooms).getAppliances().size(); applianceTypeIndex++) {
-					if (floors.get(floor).getClassrooms().get(rooms).getAppliances().get(applianceTypeIndex).equals(appliance)) {
+					if (floors.get(floor).getClassrooms().get(rooms).getAppliances().get(applianceTypeIndex).getType().equalsIgnoreCase(appliance)) {
 						wattage+=(floors.get(floor).getClassrooms().get(rooms).getAppliances().get(applianceTypeIndex).calcDailyConsumption());      
 					}        
 				}      
@@ -79,31 +79,26 @@ public class School {
 		return wattage;
 	} 
 	
-	/* ***************************
-	 * Author: Jianying Chiang    Date: 2018-06-08
-	 * Calculates and return the appliance type with 
-	 * the most energy consumption type of
-	 * St. Joseph Secondary School.
-	 * @param: none
-	 * @return: ApplianceType
-	 * ****************************/
+
 	public void populateApplianceType() {
 		ArrayList<String>applianceTypes=new ArrayList<String>();
-		
 		for(int i=0;i<floors.size();i++){
 			for(int j=0;j<floors.get(i).getClassrooms().size();j++){
 				for(int k=0;k<floors.get(i).getClassrooms().get(j).getAppliances().size();k++){
-					if(!(LinearSearch.search(applianceTypes,floors.get(i).getClassrooms().get(j).getAppliances().get(k).type).size()>0)){
-						applianceTypes.add(floors.get(i).getClassrooms().get(j).getAppliances().get(k).type);
+					Appliance temp=this.floors.get(i).getClassrooms().get(j).getAppliances().get(k);
+					if(!applianceTypes.contains(temp.getType())){
+						applianceTypes.add(temp.getType());
 						System.out.println("Floor: "+floors.get(i).getFloorNumber()+" Room: "+floors.get(i).getClassrooms().get(j).getName()+" Appliance: "+floors.get(i).getClassrooms().get(j).getAppliances().get(k));
-						this.applianceConsumption.put(calcApplianceTotal(floors.get(i).getClassrooms().get(j).getAppliances().get(k).type), floors.get(i).getClassrooms().get(j).getAppliances().get(k).type);
+						this.applianceConsumption.put(calcApplianceTotal(temp.getType()), temp.getType().toUpperCase());
 					}
 				}
 
 			}
 		}
 
-
+		for(int i=0;i<applianceTypes.size();i++){
+			System.out.println(applianceTypes.get(i));
+		}
 	}
 
 	/* ***************************
@@ -142,7 +137,7 @@ public class School {
 	
 	public Classroom getClassroom(String roomName){
 		for(int i=0;i<floors.size();i++){
-			for(int j=0;j<floors.get(i).getClassrooms().size();i++){
+			for(int j=0;j<floors.get(i).getClassrooms().size();j++){
 				if(roomName.equals(floors.get(i).getClassrooms().get(j).getName())){
 					return floors.get(i).getClassrooms().get(j);
 				}

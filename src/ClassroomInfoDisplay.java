@@ -8,6 +8,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextPane;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ClassroomInfoDisplay extends JDialog {
 
@@ -38,24 +40,26 @@ public class ClassroomInfoDisplay extends JDialog {
 		contentPanel.setLayout(null);
 		{
 			JTextPane className = new JTextPane();
-			className.setBounds(25, 5, 95, 20);
+			className.setBounds(25, 5, 377, 20);
 			className.setText("Name: "+ room.getName());
 			contentPanel.add(className);
 		}
-		
 
-		JTextPane applianceList = new JTextPane();
-		applianceList.setBounds(25, 67, 377, 122);
-		String str ="Appliances: \n";
-		for(int i=0;i<room.getAppliances().size();i++){
-			str+=room.getAppliances().get(i).getQuantity() + " " + room.getAppliances().get(i).getName()+ ":" +room.getAppliances().get(i).calcDailyConsumption()+" kW in 24h"; 
+		{
+			JTextPane applianceList = new JTextPane();
+			applianceList.setBounds(25, 67, 377, 122);
+			String str ="Appliances: \n";
+			for(int i=0;i<room.getAppliances().size();i++){
+				System.out.println(room.getAppliances().get(i).getQuantity() + " " + room.getAppliances().get(i).getName()+ ":" +room.getAppliances().get(i).calcDailyConsumption()+" kW in 24h\n");
+				str+=room.getAppliances().get(i).getQuantity() + " " + room.getAppliances().get(i).getName()+ ":" +room.getAppliances().get(i).calcDailyConsumption()+" kW in 24h\n"; 
+			}
+			applianceList.setText(str);
+			contentPanel.add(applianceList);
 		}
-		applianceList.setText(str);
-		contentPanel.add(applianceList);
-		
+
 		treeDescription = new JTextField();
 		treeDescription.setBounds(25, 197, 177, 20);
-		treeDescription.setText("Equivalent To: "+ School.calcTrees(room.calcClassConsumption())+ " trees");
+		treeDescription.setText("Equivalent To: "+ String.format("%.2f",School.calcTrees(room.calcClassConsumption()))+ " trees");
 		contentPanel.add(treeDescription);
 		treeDescription.setColumns(10);
 
@@ -65,6 +69,11 @@ public class ClassroomInfoDisplay extends JDialog {
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("OK");
+				okButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						dispose();
+					}
+				});
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);

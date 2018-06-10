@@ -22,7 +22,7 @@ public class MainPrg {
 					scan.nextLine();					//Jump over *
 					ArrayList<Appliance>appliances= new ArrayList<Appliance>();
 					String str=scan.nextLine();
-					//System.out.println("Str");
+					
 					while(!str.equals("*")){
 						Appliance appl = new Appliance();
 						Scanner input= new Scanner(str);
@@ -30,14 +30,30 @@ public class MainPrg {
 						appl.setName(input.next());
 						appl.setHourlyConsumption(input.nextDouble());
 						appl.setQuantity(input.nextInt());
+						System.out.println(appl.getQuantity());
 						appl.setTimeOn(input.nextDouble());
-						appl.setType(input.next());
+						String type=input.next();
+						if(type.equals("light")||type.equals("lights"))
+							appl.setType("light");
+						else if(type.equals("computer")||type.equals("computers"))
+							appl.setType("computers");
+						else if(type.equals("kitchen")||type.equals("kitchen appliances")||type.equals("kitchen appliances "))
+							appl.setType("kitchen appliances");
+						else if(type.equals("electronics")||type.equals("electronics "))
+							appl.setType("electronics");
+						else
+							appl.setType(type);
 						appliances.add(appl);
-						System.out.println(appl);
+						//System.out.println(appl);
 						str=scan.nextLine();
 					}
-					cl.setAppliances(appliances);
+					cl.Appliances=appliances;
 					rooms.add(cl);
+					System.out.println(cl);
+					for(int i=0;i<cl.getAppliances().size();i++){
+						System.out.println(cl.getAppliances().get(i));
+					}
+					System.out.println("\n");
 					if(scan.hasNext())
 						read=scan.nextLine();
 					else

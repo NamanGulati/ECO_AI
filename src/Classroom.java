@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -6,8 +7,8 @@ public class Classroom {
 
 
 	private String name;
-	private static ArrayList <Appliance> Appliances;
-	double consumption;
+	public ArrayList <Appliance> Appliances;
+	public double consumption;
 	
 	public Classroom(String name, ArrayList<Appliance> appliances) {
 		this.name = name;
@@ -46,7 +47,7 @@ public class Classroom {
 		return sum;
 	}
 	
-	public static Map<String, Double> findMaxApplianceType(){
+	public  Map<String, Double> findMaxApplianceType(){
 		
 		Map<String, Double> maxVal=new HashMap<String, Double>();
 		double max=0;
@@ -64,7 +65,7 @@ public class Classroom {
 		return this.calcClassConsumption()*0.094;
 	}
 	public String toString(){
-		return this.name+" "+this.calcClassConsumption()+"kwh";
+		return this.name+" "+String.format("%.2f",this.calcClassConsumption())+"kwh";
 	}
 	
 }

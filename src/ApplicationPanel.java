@@ -9,8 +9,12 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Map.Entry;
+import java.util.SortedSet;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 import javax.swing.UIManager;
 import javax.swing.JButton;
@@ -21,6 +25,9 @@ import net.miginfocom.swing.MigLayout;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
+
+import SortingAlgorithms.BubbleSort;
+
 import com.jgoodies.forms.layout.FormSpecs;
 import javax.swing.JTextField;
 import javax.swing.JList;
@@ -35,6 +42,8 @@ public class ApplicationPanel extends JPanel {
 	private JTextField txtSchoolMonthlyEnergy;
 	private JList list;
 	private JButton btnViewGraph;
+	private JPanel panel;
+	private JButton btnNewButton;
 
 	/**
 	 * Create the panel.
@@ -50,29 +59,51 @@ public class ApplicationPanel extends JPanel {
 
 		for(int i=0;i<MainPrg.stJoes.getFloors().size();i++){
 			JPanel floor1 = new JPanel();
-			tabbedPane.addTab(("Floor"+i), null, floor1, null);
+			tabbedPane.addTab(("Floor"+MainPrg.stJoes.getFloors().get(i).getFloorNumber()), null, floor1, null);
 
 			tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
 			FormLayout fl = new FormLayout(new ColumnSpec[] {
 					FormSpecs.RELATED_GAP_COLSPEC,
-					ColumnSpec.decode("150px"),
-					FormSpecs.LABEL_COMPONENT_GAP_COLSPEC,
-					ColumnSpec.decode("155px"),},
-					new RowSpec[] {
-							FormSpecs.RELATED_GAP_ROWSPEC,
-							RowSpec.decode("20px"),
-							FormSpecs.LABEL_COMPONENT_GAP_ROWSPEC,
-							RowSpec.decode("20px"),
-							FormSpecs.LABEL_COMPONENT_GAP_ROWSPEC,
-							RowSpec.decode("20px"),
-							FormSpecs.LABEL_COMPONENT_GAP_ROWSPEC,
-							RowSpec.decode("20px"),
-							FormSpecs.LABEL_COMPONENT_GAP_ROWSPEC,
-							RowSpec.decode("20px"),
-							RowSpec.decode("33px"),
-							RowSpec.decode("46px"),
-							FormSpecs.UNRELATED_GAP_ROWSPEC,
-							RowSpec.decode("75px"),});
+					FormSpecs.DEFAULT_COLSPEC,
+					FormSpecs.RELATED_GAP_COLSPEC,
+					FormSpecs.DEFAULT_COLSPEC,
+					FormSpecs.RELATED_GAP_COLSPEC,
+					FormSpecs.DEFAULT_COLSPEC,
+					FormSpecs.RELATED_GAP_COLSPEC,
+					FormSpecs.DEFAULT_COLSPEC,
+					FormSpecs.RELATED_GAP_COLSPEC,
+					FormSpecs.DEFAULT_COLSPEC,
+					FormSpecs.RELATED_GAP_COLSPEC,
+					FormSpecs.DEFAULT_COLSPEC,
+					FormSpecs.RELATED_GAP_COLSPEC,
+					FormSpecs.DEFAULT_COLSPEC,
+					FormSpecs.RELATED_GAP_COLSPEC,
+					FormSpecs.DEFAULT_COLSPEC,},
+				new RowSpec[] {
+					FormSpecs.RELATED_GAP_ROWSPEC,
+					FormSpecs.DEFAULT_ROWSPEC,
+					FormSpecs.RELATED_GAP_ROWSPEC,
+					FormSpecs.DEFAULT_ROWSPEC,
+					FormSpecs.RELATED_GAP_ROWSPEC,
+					FormSpecs.DEFAULT_ROWSPEC,
+					FormSpecs.RELATED_GAP_ROWSPEC,
+					FormSpecs.DEFAULT_ROWSPEC,
+					FormSpecs.RELATED_GAP_ROWSPEC,
+					FormSpecs.DEFAULT_ROWSPEC,
+					FormSpecs.RELATED_GAP_ROWSPEC,
+					FormSpecs.DEFAULT_ROWSPEC,
+					FormSpecs.RELATED_GAP_ROWSPEC,
+					FormSpecs.DEFAULT_ROWSPEC,
+					FormSpecs.RELATED_GAP_ROWSPEC,
+					FormSpecs.DEFAULT_ROWSPEC,
+					FormSpecs.RELATED_GAP_ROWSPEC,
+					FormSpecs.DEFAULT_ROWSPEC,
+					FormSpecs.RELATED_GAP_ROWSPEC,
+					FormSpecs.DEFAULT_ROWSPEC,
+					FormSpecs.RELATED_GAP_ROWSPEC,
+					FormSpecs.DEFAULT_ROWSPEC,
+					FormSpecs.RELATED_GAP_ROWSPEC,
+					FormSpecs.DEFAULT_ROWSPEC,});
 			floor1.setLayout(fl);
 			int row=2;
 			int col=2;
@@ -89,17 +120,18 @@ public class ApplicationPanel extends JPanel {
 						}
 					}
 				});
-				System.out.println("Row Count: "+fl.getRowCount()+" Row: "+row+" Col: "+col);
-				if(row>14){
+				//System.out.println("Room Number: "+MainPrg.stJoes.getFloors().get(i).getClassrooms().get(j).getName()+" Row Count: "+fl.getRowCount()+" Row: "+row+" Col: "+col);
+				if(row>fl.getRowCount()){
 					row=2;
 					col+=2;
 				}
-				if(col>4){
+				if(col>fl.getColumnCount()){
 					col=2;
 					row=2;
 				}
 				try{
-					floor1.add(btn, (""+row+", "+col));
+					//System.out.println("2 Row Count: "+fl.getRowCount()+" Row: "+row+" Col: "+col);
+					floor1.add(btn, (""+ col+", "+row));
 				}
 				catch(Exception e){
 					e.printStackTrace();
@@ -120,24 +152,24 @@ public class ApplicationPanel extends JPanel {
 				ColumnSpec.decode("280px"),
 				FormSpecs.LABEL_COMPONENT_GAP_COLSPEC,
 				ColumnSpec.decode("155px"),},
-				new RowSpec[] {
-						FormSpecs.RELATED_GAP_ROWSPEC,
-						RowSpec.decode("20px"),
-						FormSpecs.LABEL_COMPONENT_GAP_ROWSPEC,
-						RowSpec.decode("20px"),
-						FormSpecs.LABEL_COMPONENT_GAP_ROWSPEC,
-						RowSpec.decode("20px"),
-						FormSpecs.LABEL_COMPONENT_GAP_ROWSPEC,
-						RowSpec.decode("20px"),
-						FormSpecs.LABEL_COMPONENT_GAP_ROWSPEC,
-						RowSpec.decode("20px"),
-						RowSpec.decode("33px"),
-						RowSpec.decode("46px"),
-						FormSpecs.UNRELATED_GAP_ROWSPEC,
-						RowSpec.decode("75px"),}));
+			new RowSpec[] {
+				FormSpecs.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("20px"),
+				FormSpecs.LABEL_COMPONENT_GAP_ROWSPEC,
+				RowSpec.decode("20px"),
+				FormSpecs.LABEL_COMPONENT_GAP_ROWSPEC,
+				RowSpec.decode("20px"),
+				FormSpecs.LABEL_COMPONENT_GAP_ROWSPEC,
+				RowSpec.decode("20px"),
+				FormSpecs.LABEL_COMPONENT_GAP_ROWSPEC,
+				RowSpec.decode("20px"),
+				RowSpec.decode("20px"),
+				RowSpec.decode("46px"),
+				FormSpecs.UNRELATED_GAP_ROWSPEC,
+				RowSpec.decode("75px"),}));
 
 		txtDailySchoolConsumption = new JTextField();
-		txtDailySchoolConsumption.setText("Daily School Consumption: "+MainPrg.stJoes.calcSchoolConsumption()+"kWh");
+		txtDailySchoolConsumption.setText("Daily School Consumption: "+String.format("%.2f",MainPrg.stJoes.calcSchoolConsumption())+"kWh");
 		Analytics.add(txtDailySchoolConsumption, "2, 2, 3, 1, fill, top");
 		txtDailySchoolConsumption.setColumns(10);
 
@@ -147,9 +179,18 @@ public class ApplicationPanel extends JPanel {
 		txtMostEnergyConsuming.setColumns(10);
 
 		txtMostEnergyConsuming_1 = new JTextField();
-		Iterator<Entry<Double, String>> i = MainPrg.stJoes.getApplianceConsumption().entrySet().iterator();
-		Entry<Double, String> e = i.next();
-		txtMostEnergyConsuming_1.setText("Most Energy Consuming Appliance: "+e.getValue()+" "+ e.getKey());
+		MainPrg.stJoes.populateApplianceType();
+		Double[]arr = new Double[MainPrg.stJoes.getApplianceConsumption().size()];
+		MainPrg.stJoes.getApplianceConsumption().keySet().toArray(arr);
+		Arrays.sort(arr);
+		ArrayList<Double>keys= new ArrayList<Double>();
+		for(int i=0;i<arr.length;i++){
+			keys.add(arr[i]);
+		}
+		BubbleSort.sort(keys, false);
+		//Iterator<Entry<Double, String>> i = new TreeMap<Double, String>(MainPrg.stJoes.getApplianceConsumption()).entrySet().iterator();
+		//Entry<Double, String> e = i.next();
+		txtMostEnergyConsuming_1.setText("Most Energy Consuming Appliance: "+MainPrg.stJoes.getApplianceConsumption().get(keys.get(0))+" "+ String.format("%.2f",keys.get(0)));
 		Analytics.add(txtMostEnergyConsuming_1, "2, 6, 3, 1, fill, top");
 		txtMostEnergyConsuming_1.setColumns(10);
 
@@ -165,14 +206,12 @@ public class ApplicationPanel extends JPanel {
 
 		DefaultListModel<String> model = new DefaultListModel<>();
 		list = new JList(model);
-		model.addElement(e.getValue()+"  "+e.getKey());
-		while(i.hasNext()){
-			Entry<Double, String> ent = i.next();
-			model.addElement(ent.getValue()+" "+ent.getKey());
+		for(int i=0;i<keys.size();i++){
+			model.addElement(MainPrg.stJoes.getApplianceConsumption().get(keys.get(i))+": "+String.format("%.2f", keys.get(i))+"kWh");
 		}
 		Analytics.add(list, "2, 12, 1, 3, fill, fill");
 
-		btnViewGraph = new JButton("View Graph of Aplliances");
+		btnViewGraph = new JButton("Aplliance  Graph");
 		btnViewGraph.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				GenBarGraph.run(true);
@@ -180,13 +219,14 @@ public class ApplicationPanel extends JPanel {
 		});
 		Analytics.add(btnViewGraph, "4, 12, fill, fill");
 
-		JButton button = new JButton("View Graph of Clasrooms");
+		JButton button = new JButton("Classroom Graph");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				GenBarGraph.run(false);
 			}
 		});
-		Analytics.add(button, "2, 14, 3, 1, right, top");
+		Analytics.add(button, "4, 14, right, top");
+		
 	}
 
 
