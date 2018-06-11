@@ -210,11 +210,15 @@ public class ApplicationPanel extends JPanel {
 			model.addElement(MainPrg.stJoes.getApplianceConsumption().get(keys.get(i))+": "+String.format("%.2f", keys.get(i))+"kWh");
 		}
 		Analytics.add(list, "2, 12, 1, 3, fill, fill");
-
 		btnViewGraph = new JButton("Applliance  Graph");
+		GenBarGraph graph= new GenBarGraph();
 		btnViewGraph.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				GenBarGraph.run(true);
+				if(graph.st==null)
+					graph.run();
+				else
+					graph.start(graph.st);
+
 			}
 		});
 		Analytics.add(btnViewGraph, "4, 12, fill, fill");
@@ -222,7 +226,8 @@ public class ApplicationPanel extends JPanel {
 		JButton button = new JButton("Classroom Graph");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				GenBarGraph.run(false);
+				GenClassGraph.run();
+				
 			}
 		});
 		Analytics.add(button, "4, 14, right, top");
@@ -238,7 +243,7 @@ public class ApplicationPanel extends JPanel {
 	 */
 	private static void createAndShowGUI() {
 		//Create and set up the window.
-		JFrame frame = new JFrame("TabbedPaneDemo");
+		JFrame frame = new JFrame("ECO_AI");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		//Add content to the window.
