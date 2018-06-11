@@ -211,7 +211,7 @@ public class ApplicationPanel extends JPanel {
 		}
 		Analytics.add(list, "2, 12, 1, 3, fill, fill");
 
-		btnViewGraph = new JButton("Aplliance  Graph");
+		btnViewGraph = new JButton("Applliance  Graph");
 		btnViewGraph.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				GenBarGraph.run(true);
