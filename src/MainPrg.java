@@ -60,6 +60,7 @@ public class MainPrg {
 						break;
 				}
 				fl.setClassrooms(rooms);
+				fl.sortList();
 				floors.add(fl);
 			}
 			stJoes.setFloors(floors);

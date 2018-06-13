@@ -1,0 +1,877 @@
+#
+1
+115
+*
+light,32,12,9,light
+emergency light,32,4,24,light
+sharp gxm10,300,1,9,electronics
+toshiba dvd player sd3300,6,1,9,electronics
+toshiba tv,41,1,9,electronics 
+*
+113
+*
+light,32,64,9,light
+emergency light,32,4,9,light
+yamaha clavinova,70,1,9,electronics
+roland di piano,24,1,9,electronics
+yamaha p 85,70,1,9,electronics
+imax mndy2ll a,26,2,9,electronics
+exit sign,40,1,24,light
+*
+114
+*
+light,32,30,9,light
+octiplex 3020,255,1,9,electronics
+oki b720,1300,1,9,electronics
+octiplex 3040,240,1,9,electronics
+octiplex 390,240,2,9,electronics
+general electric microwave,1100,1,9,kitchen
+*
+guidance office
+*
+light,32,33,9,light
+emergency light,32,3,9,light
+radio,5,1,9,electronics
+oki b721 printer,1400,1,9,electronics
+workcentre 5955 xerox,55,1,9,electronics
+oki c3600,255,1,9,electronics
+optiplex 380,255,1,9,electronics
+optiplex 390,255,1,9,electronics
+optiplex 3020,255,1,9,electronics
+*
+cunningham
+*
+light,32,6,9,light
+optiplex 3010,255,1,9,electronics
+*
+bindoo
+*
+light,32,6,9,light
+octoplex 3010,255,1,9,electronics
+*
+ledbrook
+*
+light,32,6,9,light
+octoplex 3010,255,1,9,electronics
+*
+vasille
+*
+light,32,6,9,light
+octoplex 3010,255,1,9,electronics
+*
+robataille
+*
+light,32,6,9,light
+octoplex 3010,255,1,9,electronics
+*
+guidance storage
+*
+light,32,6,9,light
+toaster oven,1200,1,1,kitchen
+*
+settlement worker
+*
+light,32,3,9,light
+*
+counselling f
+*
+light,32,6,9,light
+ge microwave,1100,1,1,kitchen
+whirlpool,1200,1,1,kitchen
+*
+112
+*
+light,32,68,9,light
+projector,300,1,9,electronics
+*
+caf
+*
+large light,32,12,9,light
+potted light,32,6,9,light
+exit sign,30,4,9,light
+security camera,60,4,9,electronics
+microwave,1100,2,2,kitchen
+*
+seminar room 1(library)
+*
+light,32,8,9,light
+optiplex 390,240,1,9,electronics
+*
+seminar room 2(library)
+*
+light,32,1,9,light
+*
+library break room
+*
+watercooler,1500,1,9,kitchen
+toaster oven,1200,1,1,kitchen
+microwave,1100,1,1,kitchen
+mini-fridge,136,2,24,kitchen
+light,32,4,9,light
+*
+library office le page
+*
+light,32,8,9,light
+octiplex,240,1,9,electronics
+*
+library office audio/visual
+*
+light,32,12,9,light
+emergecny light,24,4,24,light
+octiplex 390,255,2,9,electronics
+octiplex 3010,240,1,9,electronics
+toshiba tv,20,2,9,electronics
+power macintosh 7500/100,850,1,9,electronics
+*
+caf kitchen 107
+*
+light,32,28,9,light
+*
+stage
+*
+emergency light,24,2,24,light
+*
+109b
+*
+light,32,46,9,light
+incandescent light,100,6,9,light
+fridge,1200,3,24,kitchen
+exit sign,24,1,24,light
+coffee maker,600,1,1,kitchen
+radio,16,1,9,electronics
+microwave,1100,1,1,kitchen
+*
+contruction 104
+*
+light,32,76,9,light
+*
+workroom 102
+*
+light,32,48,9,light
+*
+103
+*
+light,32,32,9,light
+emergency light,24,4,24,light
+hp rp5700,200,19,9,electronics
+lexmark printer t630,580,1,2,electronics
+*
+101
+*
+light,32,76,9,light
+*
+100
+*
+light,32,8,9,light
+workcenter 5890,300,1,1,electronics
+xerox,1000,1,1,electronics
+*
+110
+*
+emergency light,32,3,24,light
+light,32,30,9,light
+octiplex 390,240,4,9,electronics
+octiplex 3010,225,1,9,electronics
+fridge,1200,1,24,kitchen
+dishwasher,1600,1,1,kitchen
+electric dryer,1800,1,1,kitchen
+electric wash,500,1,1,kitchen
+*
+108
+*
+light,32,9,9,light
+*
+106
+*
+*
+main office
+*
+light,32,30,9,light
+emergency light,32,14,24,light
+optiplex390,240,1,9,electronics
+optiplex3010,225,1,9,electronics
+optiplex3040,240,1,9,electronics
+security camera,40,1,9,miscellaneous
+exit sign,17,1,24,light
+*
+conference room
+*
+light,32,6,9,light
+*
+workroom(office)
+*
+light,32,5,9,light
+microwave,1100,1,1,kitchen
+toaster,700,2,1,kitchen
+convection toaster,1500,1,1,kitchen
+expresso machine,1200,1,1,kitchen
+xerox,1000,1,1,electronics
+*
+bomben
+*
+normal lights,32,9,9,light
+danby minifridge,136,1,24,kitchen
+oki b721 printer,200,1,3,electronics
+*
+bolger
+*
+normal lights,32,6,9,light
+oki c3600,200,1,3,electronics
+*
+meier
+*
+normal lights,32,6,9,light
+oki c332,240,1,4,electronics
+*
+office washroom hall
+*
+light,32,4,9,light
+fridge kenmore,1100,1,24,kitchen
+feel well water cooler,200,1,24,kitchen
+black+decker coffee maker,300,1,1,kitchen
+*
+office washroom male
+*
+light,32,4,9,light
+*
+office washroom female
+*
+light,32,4,9,light
+*
+grieve
+*
+light,32,6,9,light
+radio,16,1,9,electronics
+optiplex3040,240,1,9,electronics
+lexmark t630 printer,300,1,1,electronics
+*
+attendance office
+*
+light,32,24,9,light
+optiplex 3040,240,1,9,electronics
+printer,300,1,1,electronics
+radio,16,1,9,electronics
+*
+gym
+*
+light,32,400,9,light
+*
+phys ed office
+*
+light,32,23,9,light
+printer,300,1,2,electronics
+optiplex 3020,200,3,8,electronics
+*
+green stairwell
+*
+emergency lights,32,15,9,light
+security camera,40,3,24,miscellaneous
+exit sign,32,1,24,light
+*
+purple stairwell
+*
+emergency lights,32,15,9,light
+security camera,40,3,24,miscellaneous
+exit sign,32,1,24,light
+*
+blue stairwell
+*
+emergency lights,32,15,9,light
+security camera,40,3,24,miscellaneous
+exit sign,32,1,24,light
+*
+yellow stairwell
+*
+emergency lights,32,15,9,light
+security camera,40,3,24,miscellaneous
+exit sign,32,1,24,light
+*
+floor 1 hallway
+*
+security camera,40,23,24,miscellaneous
+exit sign,32,10,24,light
+large center light,40,4,24,light
+light,32,315,9,light
+pot light,36,50,9,light
+*
+#
+2
+222
+*
+dell 3090,43.2,2,9,computer
+dell optiplex 380,53.2,2,9,computer
+lights,32,42,9,lights
+emergency lights,32,3,24,lights
+*
+floor 2 hallway
+*
+lights,32,178,4,lights
+pot lights,32,48,4,lights
+security cameras,40,10,24,electronics 
+big square lights,32,3,24,lights
+*
+204
+*
+lights,32,48,9,lights
+epson projector,109,1,9,electronics 
+optiplex 3020,262,1,9,computer
+*
+210
+*
+lenmark printer,15.5,1,9,electronics
+computer 3040,41.1,3,9,computer
+panasonic radio,9.1,1,9,electronics
+lights,32,21,9,lights
+microwave,1200,2,24,kitchen appliances
+fridge,736,1,24,kitchen appliances
+*
+215
+*
+benq black projector,262,1,9,miscellaneous
+dell 3030 with monitor,47,28,9,computer
+lenmark printer,15.5,1,9,miscellaneous
+dell 3010 with monitor,45,1,9,computer
+smart light raise,304,1,9,electronics
+*
+229/prep room b
+*
+lights,32,34,9,lights
+computers,45,4,9,computer
+printers,300,1,9,electronics
+*
+223a
+*
+smart board,450,1,9,electronics
+dell 3010,45,1,9,computer
+lights,34,36,9,lights
+*
+223b
+*
+smart board,450,1,9,electronics
+dell 3010,45,1,9,computers
+lights,34,36,9,lights
+*
+227
+*
+lights,32,40,9,lights
+emergency lights,32,4,24,lights
+dell 3040,54,1,9,computer
+smart board,450,1,9,electronics
+*
+228
+*
+smart board,450,1,9,electronics
+dell 3040,41,1,9,computer
+lights,32,32,9,lights
+emergency lights,32,4,24,lights
+*
+203
+*
+lights,32,34,9,lights
+emergency lights,32,4,24,lights
+dell 3010,45,1,9,computer
+smart projector,304,1,9,miscellaneous
+*
+202
+*
+dell 3010,45,1,9,computer
+lights,32,17,9,lights
+emergency lights,32,4,24,lights
+*
+201
+*
+lights,32,48,9,lights
+benq projector,262,1,9,electronics
+*
+205
+*
+optiplex 3040,41,7,9,computer
+optiplex 3090,54,10,9,computer
+optiplex 3020,47,9,9,computer
+optiplex 3010,45,3,9,computer
+lights,32,42,9,lights
+benq projector,267,1,9,electronics
+*
+206
+*
+lights,32,36,9,lights
+dell 3040,51,9,9,computer
+benq projector,267,1,9,electronics
+*
+207
+*
+lights,32,24,9,lights
+dell 3040,51,9,9,computer
+oki printer,20.3,1,9,electronics
+*
+208a
+*
+dell 3010,45,1,9,computer
+lights,32,48,9,lights
+smart projector,304,1,9,electronics
+*
+208b
+*
+lights,32,36,9,lights
+dell 3010,45,1,9,computer
+smart board,450,1,9,electronics
+*
+209
+*
+lights,32,48,9,lights
+smart projector,450,1,9,electronics
+dell 3040,51,1,9,computer
+*
+211
+*
+lights,32,36,9,lights
+dell 3040,51,1,9,computer
+smart board,450,1,9,electronics
+*
+212
+*
+lights,32,36,9,lights
+dell 3040,51,1,9,computer
+*
+214
+*
+lights,32,32,9,lights
+*
+216
+*
+lights,32,36,9,lights
+dell 3010,45,1,9,computer
+dell 3040,51,1,9,computer
+smart board,450,1,9,electronics
+*
+217
+*
+lights,32,56,9,lights
+benq projector,262,1,9,electronics
+*
+218
+*
+lights,32,16,9,lights
+dell 3040,51,2,9,computer
+microwave,1200,1,24,kitchen appliances
+fridge,736,1,24,kitchen appliances
+oki small printer,20.3,1,9,electronics
+*
+219
+*
+lights,32,16,9,lights
+*
+220
+*
+lights,32,76,9,lights
+emergency lights,32,4,24,lights
+toshiba tv,13.4,1,9,electronics
+speaker,27,1,9,miscellaneous
+samsung dvd player,6.2,1,9,electronics
+*
+221
+*
+oki printer,20.3,1,9,electronics
+samsung tv,10.4,1,9,electronics
+dell 3010,45,2,9,computer
+dell 3040,51,1,9,computer
+lights,32,33,9,lights
+*
+science office
+*
+lights,32,32,9,lights
+dell 3040,51,4,9,computer
+oki printer,19.1,1,9,electronics
+*
+girls washroom
+*
+emergency lights,32,30,24,lights
+*
+science prep room
+*
+lights,32,44,9,lights
+emergency lights,32,4,24,lights
+*
+224
+*
+lights,32,34,9,lights
+emergency lights,32,4,24,lights
+dell 3010,45,1,9,computer
+*
+225
+*
+emergency lights,32,4,24,lights
+lights,32,34,9,lights
+dell 3010,45,1,9,lights
+multi-media cart,104,1,9,miscellaneous
+*
+science hallway
+*
+lights,32,48,9,lights
+xerox printer,45,1,9,electronics
+*
+226
+*
+lights,32,32,9,lights
+emergency lights,32,4,24,lights
+dell 3010,45,1,9,computer
+media cart,104,1,9,miscellaneous
+*
+boys washroom
+*
+emergency lights,32,24,24,lights
+*
+218
+*
+lights,32,16,9,lights
+dell 3040,51,2,9,computer
+fridge,736,1,24,kitchen appliances
+microwave,1200,1,9,kitchen appliances
+*
+223b
+*
+lights,32,29,9,lights
+dell 3010,45,1,9,computer
+emergency lights,32,3,24,lights
+*
+catwalk
+*
+emergency lights,32,2,24,lights
+security camera,40,2,24,electronics
+*
+#
+3
+306
+*
+lights,32,16,9,lights
+dell 3020,51,2,9,computer
+lexmark printer,15.5,1,9,electronics
+incandescent lights,60,27,9,lights
+microwave,1200,1,9,kitchen appliances
+mini-fridge,736,1,24,kitchen appliances
+*
+310
+*
+cfl lights,32,16,9,lights
+toshiba tv,13.4,1,9,electronics
+dell 3020,51,1,24,computer
+radio,13.5,1,9,electronics
+*
+310
+lights,32,8,9,lights
+*
+305
+*
+cfl lights,32,32,9,lights
+smart board,250,1,9,electronics
+toshiba tv,13.4,1,9,electronics
+dell 3020,51,1,24,computer
+*
+recieving
+*
+lights,32,12,9,lights
+*
+333
+*
+lights,32,32,9,lights
+smart board,250,1,9,electronics
+optiplex 3090,43.2,1,9,computer
+*
+335
+*
+lights,32,32,9,lights
+emergency lights,32,4,24,lights
+dell 3010,45,1,9,computer
+toshiba tv,13.4,1,9,electronics
+*
+332
+*
+lights,32,40,9,lights
+smart board,250,1,9,electronics
+*
+333
+*
+lights,32,32,9,lights
+smart board,250,1,9,electronics
+dell 3010,45,1,9,computer
+*
+334
+*
+dell 3050,47,2,9,computer
+lights,32,28,9,lights
+fridge,1200,1,24,kitchen appliances
+microwave,735,1,9,kitchen appliances
+oki printer,20.3,1,9,electronics
+*
+331
+*
+dell 3010,45,1,9,computer
+lights,32,32,9,lights
+toshiba tv,13.7,1,9,electronics
+*
+329
+*
+dell 3010,45,1,9,computer
+lights,32,32,9,lights
+toshiba tv,13.7,1,9,electronics
+*
+328
+*
+dell 3010,45,1,9,computer
+dell 3040,51,1,9,computer
+lights,32,16,9,lights
+espon printer,20.3,1,9,electronics
+espon printer,20.3,1,9,electronics
+*
+327
+*
+dell 3010,41,18,9,computer
+lights,32,28,9,lights
+emergency lights,32,4,24,lights
+*
+resource department
+*
+lights,32,16,9,lights
+dell 3040,51,2,9,computer
+microwave,1200,1,9,kitchen appliances
+fridge,735,1,24,kitchen appliances
+*
+324
+*
+dell 3010,45,15,9,computer
+lexmark printer,20.3,1,9,electronics
+smart board,250,1,9,electronics
+emergency lights,32,4,24,lights
+lights,32,28,9,lights
+*
+326
+*
+dell 3010,45,1,9,computer
+lights,32,32,9,lights
+chrome book cart,16.3,1,9,miscellaneous
+toshiba tv,13.7,1,9,electronics
+*
+325
+*
+toshiba tv,13.7,1,9,electronics
+dell 3010,45,1,9,computer
+lights,32,32,9,lights
+*
+323
+*
+small projector,262,1,9,electronics
+toshiba tv,13.7,1,9,electronics
+lights,32,32,9,lights
+dell 3010,45,1,9,computer
+*
+322
+*
+toshiba tv,13.7,1,9,electronics
+lights,32,32,9,lights
+dell 3010,45,1,9,computer
+media cart,104,1,9,miscellaneous
+*
+321
+*
+smart projector,250,1,9,electronics
+dell 3010,45,1,9,computer
+lights,32,32,9,computer
+*
+330
+*
+dell 3010,45,1,9,computer
+oki colour printer,556,1,9,electronics
+lights,32,12,9,lights
+*
+320
+*
+toshiba tv,13.7,1,9,electronics
+dell 3010,45,1,9,computer
+lights,32,32,9,lights
+*
+boys washroom
+*
+emergency lights,32,34,24,lights
+*
+girls washroom
+*
+emergency lights,32,26,24,lights
+*
+319
+*
+lights,32,14,9,lights
+dell 3040,51,1,9,computer
+lexmark printer,13.7,1,9,electronics
+*
+318
+*
+fridge,735,1,24,kitchen appliances
+microwave,1200,2,9,kitchen appliances
+stove,3000,1,3,kitchen appliances
+dishwasher,62,1,2,kitchen appliances
+panasonic tv,13.4,1,9,electronics
+dell 3010,45,1,9,computer
+lights,32,18,9,lights
+emergency lights,32,4,24,lights
+*
+storage 3
+*
+xerox printer,1000,1,9,electronics
+lights,32,8,9,lights
+*
+315
+*
+microwave,1200,1,9,kitchen appliances
+dell 3040,51,2,9,computer
+lights,32,16,9,lights
+fridge,750,1,24,kitchen appliances
+lexmark printer,13.7,1,9,electronics
+*
+316
+lights,32,8,9,lights
+dell 3010,45,2,9,computer
+dell 3040,51,1,9,computer
+oki printer,13.7,1,9,electronics
+fridge,735,1,24,kitchen appliances
+*
+312
+*
+toshiba tv,13.4,1,9,electronics
+dell 3010,45,1,9,computer
+lights,32,32,9,lights
+panasonic dvd player,1.4,1,9,electronics
+*
+311
+*
+lights,32,32,9,lights
+smart board,250,1,9,electronics
+dell 3010,45,1,9,computer
+sharp tv,13.7,1,9,electronics
+*
+307
+lights,32,36,9,lights
+emergency lights,32,4,24,lights
+dell 3010,45,1,9,computer
+toshiba tv,13.4,1,9,electronics
+*
+309
+*
+lights,32,32,9,lights
+toshiba tv,13.4,1,9,electronics
+dell 3010,45,1,9,computer
+*
+336
+*
+lights,32,44,9,lights
+dell 3010,45,1,9,computer
+*
+310
+*
+lights,32,32,9,lights
+toshiba tv,13.4,1,9,electronics
+dell 3010,45,1,9,computer
+*
+boys washroom
+*
+emergency lights,32,16,24,lights
+*
+girls washroom
+*
+emergency lights,32,13,24,lights
+*
+306
+*
+lights,32,33,9,lights
+dell 3010,45,2,9,computer
+dell 3040,51,1,9,computer
+lexmark printer,13.7,1,9,electronics
+*
+304
+*
+microwave,1200,1,9,kitchen appliances
+*
+303
+*
+lights,32,32,9,lights
+toshiba tv,13.4,1,9,electronics
+dell 3010,45,1,9,computer
+*
+302
+*
+multi media cart,107,1,9,miscellaneous
+toshiba tv,13.4,1,9,electronics
+dell 3010,45,1,9,computer
+lights,32,32,9,lights
+*
+custodial 3
+*
+lights,32,2,9,lights
+*
+301
+lights,32,24,9,lights
+dell 3010,45,2,9,computer
+oki colour printer,500,1,9,electronics
+microwave,1200,1,9,kitchen appliances
+*
+337
+*
+lights,32,68,9,lights
+emergency lights,32,12,24,lights
+fridge,735,1,9,kitchen appliances
+dell 3010,45,30,9,computer
+*
+339
+*
+lights,32,18,9,lights
+*
+343
+*
+lights,32,24,9,lights
+imac,26.2,8,9,computer
+*
+340
+imac,130,25,9,computer
+lights,32,24,9,lights
+projector,262,1,9,electronics
+oki colour printer,550,1,9,electronics
+*
+338
+*
+microwave,1200,1,9,kitchen appliances
+fridge,735,1,24,kitchen appliances
+lights,32,24,9,lights
+lexmark printer,13.7,1,9,electronics
+dell 3010,45,1,9,computer
+*
+313
+*
+lights,32,32,9,lights
+toshiba tv,13.4,1,9,electronics
+dell 3010,45,1,9,computer
+*
+314
+*
+dell 3010,45,1,9,computer
+toshiba tv,13.4,1,9,electronics
+smart board,250,1,9,electronics
+lights,32,32,9,lights
+*
+317
+*
+lights,32,20,9,lights
+microwave,1200,1,9,kitchen appliances
+incandescent lights,60,2,9,lights
+*
+305
+*
+lights,32,32,9,lights
+dell 3010,45,1,9,computer
+smart board,250,1,9,electronics
+*
+floor 3 hallway
+*
+lights,32,243,9,lights
+lights,32,4,24,lights
+security cameras,35,9,24,electronics
+pot lights,75,53,9,lights
+*

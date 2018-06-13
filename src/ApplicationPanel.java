@@ -218,6 +218,12 @@ public class ApplicationPanel extends JPanel {
 					graph.run();
 				else
 					graph.start(graph.st);
+				try {
+					graph.stop();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 
 			}
 		});

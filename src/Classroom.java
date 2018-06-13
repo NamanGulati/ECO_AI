@@ -6,7 +6,7 @@ import java.util.Map;
 public class Classroom {
 
 
-	private String name;
+	public String name;
 	public ArrayList <Appliance> Appliances;
 	public double consumption;
 	

@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import SortingAlgorithms.BubbleSort;
+
 public class Floor {
 	private int floorNumber;
 	private ArrayList<Classroom>classrooms;
@@ -51,5 +53,7 @@ public class Floor {
 	public double calcPrice(){
 		return calcFloorConsumption()*0.094;
 	}
-
+	public void sortList(){
+		BubbleSort.sort(this.classrooms, true, "name");
+	}
 }
