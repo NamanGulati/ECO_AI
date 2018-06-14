@@ -12,10 +12,24 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.stage.Stage;
 
+/**
+ * @author Naman G
+ * @date 6/13/18
+ *
+ * generates the bar graph, comparing the top 20 appliances
+ */
 public class GenBarGraph extends Application{
 
 	public static Stage st;
 
+	/*
+	 * @author: Naman G
+	 * @date: 6/13/18
+	 * @param Stage
+	 * @return void
+	 * 
+	 * Description: generates the graph, and adds all of the plot points
+	 */
 	@SuppressWarnings("unchecked")
 	@Override 
 	public void start(Stage stage) {
@@ -49,6 +63,14 @@ public class GenBarGraph extends Application{
 		st=stage;
 		stage.show();
 	}
+	/**
+	 * @author Naman G
+	 * @date Jun 13, 2018
+	 * @param ArrayList<Classroom> rooms
+	 * @return void
+	 * 
+	 * Description: sorts the list by class consumptions
+	 */
 	public void sort(ArrayList<Classroom>rooms){
 		for(int i=0;i<rooms.size();i++){
 			for(int j=1;j<(rooms.size()-i);j++){
@@ -60,16 +82,20 @@ public class GenBarGraph extends Application{
 			}
 		}
 	}
+	/**
+	 * @author Naman G
+	 * @date Jun 13, 2018
+	 * @param 
+	 * @return void
+	 * 
+	 * Description: runs the graph
+	 */
 	public void run() {
-		//Platform.setImplicitExit(false);
 		if(st==null)
 			launch(null);
 		else
 			start(st);
 		
 	}
-	/*public void stop(){
-		st.hide();
-	}*/
-	
+
 }

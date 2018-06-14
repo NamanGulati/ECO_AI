@@ -2,6 +2,12 @@ import java.util.ArrayList;
 
 import SortingAlgorithms.BubbleSort;
 
+/**
+ * @author Naman G
+ * @date 6/13/18
+ * 
+ * Holds the consumption data for the floor
+ */
 public class Floor {
 	private int floorNumber;
 	private ArrayList<Classroom>classrooms;
@@ -30,6 +36,14 @@ public class Floor {
 	public void setClassrooms(ArrayList<Classroom> classrooms) {
 		this.classrooms = classrooms;
 	}
+	/**
+	 * @author Naman G
+	 * @date Jun 13, 2018
+	 * @param 
+	 * @return Classroom
+	 * 
+	 * Description: finds the classroom on the floor which draws the most energy
+	 */
 	public Classroom findMaxClassroom(){
 		double max=classrooms.get(0).calcClassConsumption();
 		Classroom cl=classrooms.get(0);
@@ -42,6 +56,14 @@ public class Floor {
 		return cl;
 	}
 
+	/**
+	 * @author Naman G
+	 * @date Jun 13, 2018
+	 * @param 
+	 * @return double
+	 * 
+	 * Description: calculates the total energy consumption for the entire floor
+	 */
 	public double calcFloorConsumption() {
 		double sum=0;
 		for(int i=0;i<classrooms.size();i++){
@@ -50,9 +72,26 @@ public class Floor {
 		return sum;
 	}
 	
+	/**
+	 * @author Naman G
+	 * @date Jun 13, 2018
+	 * @param 
+	 * @return double
+	 * 
+	 * Description: calculates the energy cost for the floor
+	 */
 	public double calcPrice(){
-		return calcFloorConsumption()*0.094;
+		return calcFloorConsumption()*Constants.ENERGY_RATE;
 	}
+	
+	/**
+	 * @author Naman G
+	 * @date Jun 13, 2018
+	 * @param 
+	 * @return void
+	 * 
+	 * Description: sorts the list of classrooms by name
+	 */
 	public void sortList(){
 		BubbleSort.sort(this.classrooms, true, "name");
 	}

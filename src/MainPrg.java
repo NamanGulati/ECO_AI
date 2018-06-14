@@ -3,8 +3,25 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * @author gula1
+ * @date 6/13/18
+ * 
+ * Reads input from the file and runs the gui
+ *
+ */
 public class MainPrg {
+	
 	static School stJoes;
+	
+	/**
+	 * @author Naman G
+	 * @date Jun 13, 2018
+	 * @param 
+	 * @return void
+	 * 
+	 * Reads the file, and builds the school object
+	 */
 	public static void readFile() throws FileNotFoundException{
 		Scanner scan = new Scanner(new File("data.txt"));
 		if(scan.hasNextLine()&&scan.nextLine().equals("#")){
@@ -67,6 +84,14 @@ public class MainPrg {
 		}
 	}
 
+	/**
+	 * @author Naman G
+	 * @date Jun 13, 2018
+	 * @param 
+	 * @return void
+	 * 
+	 * Description: runs readFile() and runs the gui
+	 */
 	public static void main(String[]args) throws FileNotFoundException{
 		stJoes=new School();
 		readFile();

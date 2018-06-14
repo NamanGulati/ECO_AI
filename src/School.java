@@ -3,6 +3,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * @author Naman Gulati and JY
+ * @date 6/13/18
+ * 
+ * Holds energy data for entire school
+ */
 public class School {
 	//Class Variables
 	private ArrayList<Floor> floors;
@@ -80,6 +86,14 @@ public class School {
 	} 
 	
 
+	/**
+	 * @author Naman G
+	 * @date Jun 13, 2018
+	 * @param 
+	 * @return void
+	 * 
+	 * Description: populates the Map by finding the various types of appliances and the consumption of each type
+	 */
 	public void populateApplianceType() {
 		ArrayList<String>applianceTypes=new ArrayList<String>();
 		for(int i=0;i<floors.size();i++){
@@ -102,7 +116,7 @@ public class School {
 	}
 
 	/* ***************************
-	 * Author: Jianying Chiang    Date: 2018-06-08
+	 * Author: Naman Gulati    Date: 2018-06-08
 	 * Calculates and return the classroom with the 
 	 * largest energy consumption of 
 	 * St. Joseph Secondary School.
@@ -110,18 +124,6 @@ public class School {
 	 * @return: none
 	 * ****************************/
 	public Classroom findMaxClassroom() {
-	/*	if (floors.get(0).findMaxClassroom().calcClassConsumption() >= floors.get(1).findMaxClassroom().calcClassConsumption() &&
-				floors.get(0).findMaxClassroom().calcClassConsumption() >= floors.get(2).findMaxClassroom().calcClassConsumption()) {
-			return floors.get(0).findMaxClassroom();
-		}
-		else if (floors.get(1).findMaxClassroom().calcClassConsumption() >= floors.get(0).findMaxClassroom().calcClassConsumption() &&
-				floors.get(1).findMaxClassroom().calcClassConsumption() >= floors.get(2).findMaxClassroom().calcClassConsumption()) {
-			return floors.get(1).findMaxClassroom();    
-		}
-		else if (floors.get(2).findMaxClassroom().calcClassConsumption() >= floors.get(0).findMaxClassroom().calcClassConsumption() &&
-				floors.get(2).findMaxClassroom().calcClassConsumption() >= floors.get(1).findMaxClassroom().calcClassConsumption()) {
-			return floors.get(2).findMaxClassroom();    
-		}*/
 		double max=floors.get(0).getClassrooms().get(0).calcClassConsumption();
 		Classroom cl=floors.get(0).getClassrooms().get(0);
 		for(int i=0;i<floors.size();i++){
@@ -135,6 +137,14 @@ public class School {
 		return cl;
 	} 
 	
+	/**
+	 * @author Naman G
+	 * @date Jun 13, 2018
+	 * @param 
+	 * @return Classroom
+	 * 
+	 * Description: returns the clasroom with the matching room name
+	 */
 	public Classroom getClassroom(String roomName){
 		for(int i=0;i<floors.size();i++){
 			for(int j=0;j<floors.get(i).getClassrooms().size();j++){
@@ -146,9 +156,26 @@ public class School {
 		return null;
 	}
 	
+	/**
+	 * @author Naman G
+	 * @date Jun 13, 2018
+	 * @param 
+	 * @return double
+	 * 
+	 * Description: calculates the cost of energy for the whole school
+	 */
 	public double calcPrice(){
-		return this.calcSchoolConsumption()*0.094;
+		return this.calcSchoolConsumption()*Constants.ENERGY_RATE;
 	}
+	
+	/**
+	 * @author Naman G
+	 * @date Jun 13, 2018
+	 * @param 
+	 * @return double
+	 * 
+	 * Description: returns the number of trees based on the wattage
+	 */
 	public static double calcTrees(double consumption){
 		return consumption/12;
 	}

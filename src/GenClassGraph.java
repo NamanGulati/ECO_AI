@@ -10,8 +10,22 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.stage.Stage;
 
+/**
+ * @author Naman G
+ * @date 6/13/18
+ * 
+ *	Generates the graph to compare by classroom
+ */
 public class GenClassGraph extends Application {
 	    
+	    /* 
+	     * @author Naman G
+	     * @date 6/13/18
+	     * @param Stage stage
+	     * @return void
+	     * 
+	     *  place all plot points for each classroom
+	     */
 	    @SuppressWarnings("unchecked")
 		@Override public void start(Stage stage) {
 	    	XYChart.Series series1 = new XYChart.Series();
@@ -48,10 +62,26 @@ public class GenClassGraph extends Application {
 	        stage.show();
 	    }
 	 
+	    /**
+	     * @author Naman G
+	     * @date Jun 13, 2018
+	     * @param 
+	     * @return void
+	     * 
+	     * Description: runs the graph
+	     */
 	    public static void run() {
 	    	
 	        launch(new String[0]);
 	    }
+	    /**
+	     * @author Naman G
+	     * @date Jun 13, 2018
+	     * @param ArrayList<Classroom>rooms
+	     * @return void
+	     * 
+	     * Description: sort list of classrooms by consumption
+	     */
 	    public static void sort(ArrayList<Classroom>rooms){
 	    	for(int i=0;i<rooms.size();i++){
 	    		for(int j=1;j<(rooms.size()-i);j++){

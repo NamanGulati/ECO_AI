@@ -34,6 +34,12 @@ import javax.swing.JList;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.event.ListSelectionEvent;
 
+/**
+ * @author Naman G
+ * @date 6/13/18
+ * 
+ * Builds the main apllication interface
+ */
 public class ApplicationPanel extends JPanel {
 	private JTextField txtDailySchoolConsumption;
 	private JTextField txtMostEnergyConsuming;
@@ -45,9 +51,7 @@ public class ApplicationPanel extends JPanel {
 	private JPanel panel;
 	private JButton btnNewButton;
 
-	/**
-	 * Create the panel.
-	 */
+	//Constructor - builds the display pannel
 	public ApplicationPanel() {
 		//super(new GridLayout(1, 1));
 
@@ -188,8 +192,6 @@ public class ApplicationPanel extends JPanel {
 			keys.add(arr[i]);
 		}
 		BubbleSort.sort(keys, false);
-		//Iterator<Entry<Double, String>> i = new TreeMap<Double, String>(MainPrg.stJoes.getApplianceConsumption()).entrySet().iterator();
-		//Entry<Double, String> e = i.next();
 		txtMostEnergyConsuming_1.setText("Most Energy Consuming Appliance: "+MainPrg.stJoes.getApplianceConsumption().get(keys.get(0))+" "+ String.format("%.2f",keys.get(0)));
 		Analytics.add(txtMostEnergyConsuming_1, "2, 6, 3, 1, fill, top");
 		txtMostEnergyConsuming_1.setColumns(10);
@@ -242,10 +244,14 @@ public class ApplicationPanel extends JPanel {
 
 
 
+	
 	/**
-	 * Create the GUI and show it.  For thread safety,
-	 * this method should be invoked from
-	 * the event dispatch thread.
+	 * @author Naman G
+	 * @date Jun 13, 2018
+	 * @param 
+	 * @return void
+	 * 
+	 * Description: createes and shows gui
 	 */
 	private static void createAndShowGUI() {
 		//Create and set up the window.
@@ -260,12 +266,17 @@ public class ApplicationPanel extends JPanel {
 		frame.setVisible(true);
 	}
 
+	/**
+	 * @author Naman G
+	 * @date Jun 13, 2018
+	 * @param 
+	 * @return void
+	 * 
+	 * Description: Schedule a job for creating and showing this application's GUI.
+	 */
 	public static void run() {
-		//Schedule a job for the event dispatch thread:
-		//creating and showing this application's GUI.
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
-				//Turn off metal's use of bold fonts
 				UIManager.put("swing.boldMetal", Boolean.FALSE);
 				createAndShowGUI();
 			}

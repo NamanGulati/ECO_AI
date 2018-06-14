@@ -1,4 +1,9 @@
-
+/*@author Naman G
+ * @date 6/13/18
+ * 
+ * Holds constants to use inprogram
+ * 
+ */
 public interface Constants {
 	static final int TUBELIGHT_WATTAGE=32;
 	static final int ON_HOURS=9; //8AM TO 5PM
