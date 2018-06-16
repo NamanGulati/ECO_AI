@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,9 +12,9 @@ import java.util.Scanner;
  *
  */
 public class MainPrg {
-	
+
 	static School stJoes;
-	
+
 	/**
 	 * @author Naman G
 	 * @date Jun 13, 2018
@@ -39,7 +40,7 @@ public class MainPrg {
 					scan.nextLine();					//Jump over *
 					ArrayList<Appliance>appliances= new ArrayList<Appliance>();
 					String str=scan.nextLine();
-					
+
 					while(!str.equals("*")){
 						Appliance appl = new Appliance();
 						Scanner input= new Scanner(str);
@@ -83,6 +84,23 @@ public class MainPrg {
 			stJoes.setFloors(floors);
 		}
 	}
+	public static void WriteFile() throws FileNotFoundException{
+		PrintWriter pw = new PrintWriter(new File("dataNew.txt"));
+		for(int i=0;i<stJoes.getFloors().size();i++){
+			pw.println("#");
+			pw.println(stJoes.getFloors().get(i).getFloorNumber());
+			for(int j=0;j<stJoes.getFloors().get(i).getClassrooms().size();j++){
+				//if(stJoes.getFloors().get(i).getClassrooms().get(j).getAppliances().size()>0){
+				pw.println(stJoes.getFloors().get(i).getClassrooms().get(j).getName());
+				pw.println("*");
+				for(int k=0;k<stJoes.getFloors().get(i).getClassrooms().get(j).getAppliances().size();k++)
+					pw.println(stJoes.getFloors().get(i).getClassrooms().get(j).getAppliances().get(k).getName()+","+stJoes.getFloors().get(i).getClassrooms().get(j).getAppliances().get(k).getHourlyConsumption()+","+stJoes.getFloors().get(i).getClassrooms().get(j).getAppliances().get(k).getQuantity()+","+stJoes.getFloors().get(i).getClassrooms().get(j).getAppliances().get(k).getTimeOn()+","+stJoes.getFloors().get(i).getClassrooms().get(j).getAppliances().get(k).getType());
+				pw.println("*");
+				//}
+			}
+		}
+		pw.close();
+	}
 
 	/**
 	 * @author Naman G
@@ -93,9 +111,13 @@ public class MainPrg {
 	 * Description: runs readFile() and runs the gui
 	 */
 	public static void main(String[]args) throws FileNotFoundException{
-		stJoes=new School();
-		readFile();
-		stJoes.populateApplianceType();
-		ApplicationPanel.run();
+		try{
+			stJoes=new School();
+			readFile();
+			stJoes.populateApplianceType();
+			ApplicationPanel.run();
+		}finally{
+			WriteFile();
+		}
 	}
 }

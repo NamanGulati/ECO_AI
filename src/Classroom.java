@@ -2,6 +2,8 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import SortingAlgorithms.BubbleSort;
 //Done
 /**
  * @author Naman Gulati
@@ -43,6 +45,7 @@ public class Classroom {
 
 	public void setAppliances(ArrayList<Appliance> appliances) {
 		Appliances = appliances;
+		BubbleSort.sort(Appliances, false, "DailyConsumption");
 	}
 
 	

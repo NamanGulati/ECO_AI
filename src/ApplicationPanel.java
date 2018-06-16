@@ -173,16 +173,19 @@ public class ApplicationPanel extends JPanel {
 				RowSpec.decode("75px"),}));
 
 		txtDailySchoolConsumption = new JTextField();
+		txtDailySchoolConsumption.setToolTipText("This is the amount of energy the school consumes in a day");
 		txtDailySchoolConsumption.setText("Daily School Consumption: "+String.format("%.2f",MainPrg.stJoes.calcSchoolConsumption())+"kWh");
 		Analytics.add(txtDailySchoolConsumption, "2, 2, 3, 1, fill, top");
 		txtDailySchoolConsumption.setColumns(10);
 
 		txtMostEnergyConsuming = new JTextField();
+		txtMostEnergyConsuming.setToolTipText("This is the room in the school that consumes the most energy");
 		txtMostEnergyConsuming.setText("Most Energy Consuming Classroom: "+MainPrg.stJoes.findMaxClassroom());
 		Analytics.add(txtMostEnergyConsuming, "2, 4, 3, 1, fill, top");
 		txtMostEnergyConsuming.setColumns(10);
 
 		txtMostEnergyConsuming_1 = new JTextField();
+		txtMostEnergyConsuming_1.setToolTipText("This is the type of appliance that consumes the most energy in the school");
 		MainPrg.stJoes.populateApplianceType();
 		Double[]arr = new Double[MainPrg.stJoes.getApplianceConsumption().size()];
 		MainPrg.stJoes.getApplianceConsumption().keySet().toArray(arr);
@@ -197,22 +200,26 @@ public class ApplicationPanel extends JPanel {
 		txtMostEnergyConsuming_1.setColumns(10);
 
 		txtSchoolDailyEnergy = new JTextField();
+		txtSchoolDailyEnergy.setToolTipText("This is how much the school must pay each day for electricity, based on the data");
 		txtSchoolDailyEnergy.setText("School Daily Energy Cost: $"+String.format("%.2f",MainPrg.stJoes.calcSchoolConsumption()));
 		Analytics.add(txtSchoolDailyEnergy, "2, 8, 3, 1, fill, top");
 		txtSchoolDailyEnergy.setColumns(10);
 
 		txtSchoolMonthlyEnergy = new JTextField();
+		txtSchoolMonthlyEnergy.setToolTipText("This is how much the school must pay each month for electricity based on the data");
 		txtSchoolMonthlyEnergy.setText("School Monthly Energy Cost: $"+String.format("%.2f",MainPrg.stJoes.calcSchoolConsumption()*22));
 		Analytics.add(txtSchoolMonthlyEnergy, "2, 10, 3, 1, fill, top");
 		txtSchoolMonthlyEnergy.setColumns(10);
 
 		DefaultListModel<String> model = new DefaultListModel<>();
 		list = new JList(model);
+		list.setToolTipText("List of appliance types in the school, and their daily consumption");
 		for(int i=0;i<keys.size();i++){
 			model.addElement(MainPrg.stJoes.getApplianceConsumption().get(keys.get(i))+": "+String.format("%.2f", keys.get(i))+"kWh");
 		}
 		Analytics.add(list, "2, 12, 1, 3, fill, fill");
 		btnViewGraph = new JButton("Applliance  Graph");
+		btnViewGraph.setToolTipText("Shows a graph of the appliances types in the school(IF YOU HAVE ALREADY PRESSED EITHER BUTTON, YOU MUST RESTART THE PROGRAM TO VIEW THE GRAPH)");
 		GenBarGraph graph= new GenBarGraph();
 		btnViewGraph.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -232,6 +239,7 @@ public class ApplicationPanel extends JPanel {
 		Analytics.add(btnViewGraph, "4, 12, fill, fill");
 
 		JButton button = new JButton("Classroom Graph");
+		button.setToolTipText("Shows a graph of the 20 most energy consuming classrooms in the school(IF YOU HAVE ALREADY PRESSED EITHER BUTTON, YOU MUST RESTART THE PROGRAM TO VIEW THE GRAPH)");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				GenClassGraph.run();
@@ -251,7 +259,7 @@ public class ApplicationPanel extends JPanel {
 	 * @param 
 	 * @return void
 	 * 
-	 * Description: createes and shows gui
+	 * Description: creates and shows gui
 	 */
 	private static void createAndShowGUI() {
 		//Create and set up the window.

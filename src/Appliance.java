@@ -12,6 +12,7 @@ public class Appliance {
 	public String type;
 	private double hourlyConsumption;
 	private double timeOn;
+	public double DailyConsumption;
 	
 	public Appliance(String name, int quantity, String type, double hourlyConsumption, double timeOn) {
 		this.name = name;
@@ -62,10 +63,12 @@ public class Appliance {
 
 	public void setTimeOn(double timeOn) {
 		this.timeOn = timeOn;
+		calcDailyConsumption();
 	}
 
 	public double calcDailyConsumption() {
-		return hourlyConsumption*timeOn*quantity/1000;
+		DailyConsumption=hourlyConsumption*timeOn*quantity/1000;
+		return DailyConsumption;
 	}
 	
 	public double calcPrice(){

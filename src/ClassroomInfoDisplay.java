@@ -10,6 +10,8 @@ import net.miginfocom.swing.MigLayout;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
 
 
 /**
@@ -22,6 +24,7 @@ public class ClassroomInfoDisplay extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	private JTextField treeDescription;
+	static boolean indicator=false;
 
 	
 
@@ -44,8 +47,8 @@ public class ClassroomInfoDisplay extends JDialog {
 			applianceList.setBounds(25, 36, 377, 205);
 			String str ="Appliances: \n";
 			for(int i=0;i<room.getAppliances().size();i++){
-				System.out.println(room.getAppliances().get(i).getQuantity() + " " + room.getAppliances().get(i).getName()+ ":" +room.getAppliances().get(i).calcDailyConsumption()+" kW in 24h\n");
-				str+=room.getAppliances().get(i).getQuantity() + " " + room.getAppliances().get(i).getName()+ ":" +room.getAppliances().get(i).calcDailyConsumption()+" kW in 24h\n"; 
+				System.out.println(room.getAppliances().get(i).getQuantity() + " " + room.getAppliances().get(i).getName()+ ": " +room.getAppliances().get(i).calcDailyConsumption()+" kWh\n");
+				str+=room.getAppliances().get(i).getQuantity() + "    "+room.getAppliances().get(i).getType().toUpperCase()+":    " + room.getAppliances().get(i).getName()+ "  (" +room.getAppliances().get(i).calcDailyConsumption()+" kWh) \n"; 
 			}
 			applianceList.setText(str);
 			contentPanel.add(applianceList);
@@ -56,6 +59,15 @@ public class ClassroomInfoDisplay extends JDialog {
 		treeDescription.setText("Equivalent To: "+ String.format("%.2f",School.calcTrees(room.calcClassConsumption()))+ " trees");
 		contentPanel.add(treeDescription);
 		treeDescription.setColumns(10);
+		
+		JButton btnEditData = new JButton("Edit Data");
+		btnEditData.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EditDataPane.run(room);
+			}
+		});
+		btnEditData.setBounds(335, 252, 89, 23);
+		contentPanel.add(btnEditData);
 
 		{
 			JPanel buttonPane = new JPanel();
