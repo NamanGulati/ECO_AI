@@ -131,7 +131,7 @@ public class EditDataPane extends JPanel {
 	/**
 	 * @author Naman G
 	 * @date Jun 13, 2018
-	 * @param 
+	 * @param Classroom
 	 * @return void
 	 * 
 	 * Description: creates and shows gui
@@ -152,7 +152,7 @@ public class EditDataPane extends JPanel {
 	/**
 	 * @author Naman G
 	 * @date Jun 13, 2018
-	 * @param 
+	 * @param Classroom
 	 * @return void
 	 * 
 	 * Description: Schedule a job for creating and showing this application's GUI.

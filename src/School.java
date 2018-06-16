@@ -140,7 +140,7 @@ public class School {
 	/**
 	 * @author Naman G
 	 * @date Jun 13, 2018
-	 * @param 
+	 * @param String
 	 * @return Classroom
 	 * 
 	 * Description: returns the clasroom with the matching room name
@@ -171,7 +171,7 @@ public class School {
 	/**
 	 * @author Naman G
 	 * @date Jun 13, 2018
-	 * @param 
+	 * @param double
 	 * @return double
 	 * 
 	 * Description: returns the number of trees based on the wattage

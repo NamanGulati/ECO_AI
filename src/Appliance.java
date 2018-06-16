@@ -3,9 +3,8 @@
  * This class handles the various Appliances within
  * the school. This includes the name and quantity,
  * along with the amount of energy consumed.
- * */
-
-//CLASS FINISHED
+ * 
+ */
 public class Appliance {
 	private String name;
 	private int quantity;
@@ -66,14 +65,38 @@ public class Appliance {
 		calcDailyConsumption();
 	}
 
+	/**
+	 * @author Cedric T
+	 * @date Jun 16, 2018
+	 * @param 
+	 * @return double
+	 * 
+	 * Description: calculates the daily consumption of the appliance
+	 */
 	public double calcDailyConsumption() {
 		DailyConsumption=hourlyConsumption*timeOn*quantity/1000;
 		return DailyConsumption;
 	}
 	
+	/**
+	 * @author Cedric T
+	 * @date Jun 16, 2018
+	 * @param 
+	 * @return double
+	 * 
+	 * Description: calculates the cost of energy for that appliance
+	 */
 	public double calcPrice(){
 		return calcDailyConsumption()*Constants.ENERGY_RATE;
 	}
+	/** 
+	 * @author Cedric T
+	 * @date 6/16/18
+	 * @param
+	 * @return String
+	 * 
+	 * describes appliance
+	 */
 	public String toString(){
 		return "Name: "+name+" Quantity: "+quantity+" type: "+type+" consumption: "+hourlyConsumption+" time On: "+timeOn;
 	}
